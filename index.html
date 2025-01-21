@@ -13,22 +13,11 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html"><img id="brand-logo" src="img/logo.png"></a>
-            <ul id="navbar-buttons" class="ubuntu-bold">
-                <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
-                <a href="laptops.html"><li class="navbar-button">Laptops</li></a>
-                <a href="parts.html"><li class="navbar-button">PC Parts</li></a>
-                <a href="login.html"><li id="navbar-login">Login</li></a>
-            </ul>
-        </nav>
-    </header>
 
     <main>
         <!-- Carousel -->
 
-        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div id="myCarousel" class="carousel slide mb-6 ubuntu-regular" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
@@ -75,11 +64,56 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
+          
+        <!-- Website Navigation -->
 
+          <div id="home-navigation">
+            <h1 class="ubuntu-bold"> Our Products </h1>
+            <div id="home-nav-options">
+                <a href="desktops.html"><div class="home-nav-option">
+                    <div class="home-nav-name">
+                        <h1 class="ubuntu-medium">Desktops</h1>
+                    </div>
+                </div></a>
+                <a href="laptops.html"><div class="home-nav-option">
+                    <div class="home-nav-name">
+                        <h1 class="ubuntu-medium">Laptops</h1>
+                    </div>
+                </div></a>
+                <a href="parts"><div class="home-nav-option">
+                    <div class="home-nav-name">
+                        <h1 class="ubuntu-medium">Parts & Periphirals</h1>
+                    </div>
+                </div></a>
+            </div>
+          </div>
+
+        <div id="about-us">
+            <img id="about-us-img" src="img/placeholder.jpeg">
+            <div id="about-us-text">
+                <h1 class="ubuntu-bold">Who are we?</h1>
+                <h5 class="ubuntu-regular">We are a team of PC builders who loves to build PCs for other people</h5>
+                <a href="contact.html"><div id="contact-us-button" class="ubuntu-bold">Contact Us</div></a>
+            </div>
+        </div>
     </main>
 
-    <footer>
+    <navbar>
+        <a href="index.html"><img id="brand-logo" src="img/logo.png"></a>
+        <ul id="navbar-buttons" class="ubuntu-bold">
+            <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
+            <a href="laptops.html"><li class="navbar-button">Laptops</li></a>
+            <a href="parts.html"><li class="navbar-button">PC Parts</li></a>
+            <a href="login.html"><li id="navbar-login">Login</li></a>
+        </ul>
+    </navbar>
 
+    <footer>
+        <img src="img/logo.png">
+        <div class="ubuntu-medium">
+            <a href="contact.html">Contact Us</a>
+            <a href="index.html">Home</a>
+        </div>
     </footer>
 </body>
 
