@@ -1,3 +1,9 @@
+/* navbar space*/
+
+#navbarspacing {
+    height: 90px;
+}
+
 /* navbar */
 navbar {
     position: fixed;
@@ -159,4 +165,36 @@ footer > div {
     justify-content: center;
     align-items: top;
     flex-direction: column;
+}
+
+/* options */
+.options-layout {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 50px 0px 25px 0px;
+    padding: 0px 20px;
+    background-color: #7f7f7f;
+    width: 100%;
+    min-height: 350px;
+    
+}
+
+.item-option {
+    height: 330px;
+    width: 250px;
+    background-color: orange;
+}
+
+.item-option > img  {
+    width: 250px;
+    height: 250px;
+}
+
+.item-option > div {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 250px;
 }
