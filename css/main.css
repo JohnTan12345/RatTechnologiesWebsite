@@ -2,7 +2,7 @@
 nav {
     display: flex;
     padding: 10px;
-    background-color: gray;
+    background-color: #adadad;
 }
 
 #brand-logo {
@@ -18,6 +18,11 @@ nav {
     padding: 0;
     width: 100%;
     gap: 5px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }
 
 .navbar-button, #navbar-login {
@@ -39,4 +44,11 @@ nav {
 
 .navbar-button:hover {
     background-color: #1C75BC;
+}
+
+/* carousel */
+
+.carousel-img {
+    width: 100%;
+    height: 40%;
 }
