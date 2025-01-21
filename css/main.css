@@ -1,0 +1,42 @@
+/* navbar */
+nav {
+    display: flex;
+    padding: 10px;
+    background-color: gray;
+}
+
+#brand-logo {
+    max-height: 90px;
+}
+
+#navbar-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    gap: 5px;
+}
+
+.navbar-button, #navbar-login {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    font-size: 25px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#navbar-login {
+    background-color: orange;
+}
+
+.navbar-button {
+    background-color: white;
+}
+
+.navbar-button:hover {
+    background-color: #1C75BC;
+}
