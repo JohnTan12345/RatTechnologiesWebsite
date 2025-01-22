@@ -180,20 +180,34 @@ footer > div {
 }
 
 /* options */
-.options-layout {
+.options-layout-bg {
     display: flex;
-    align-items: center;
-    justify-content: left;
+    justify-content: center;
     margin: 10px 0px 10px 0px;
-    padding: 0px 20px;
     background-color: #7f7f7f;
     width: 100%;
     min-height: 350px;
     
 }
 
+.options-layout {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    width: 100%;
+    min-height: 350px;
+    
+}
+
+.options-title-bg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .options-title {
     padding: 0px 10px;
+    width: 100%;
 }
 
 .item-option {
@@ -260,7 +274,7 @@ footer > div {
         flex-direction: column;
         align-items: center;
     }
-    navbar, .carousel, #about-us > div, #main{
+    navbar, .carousel, #about-us > div, #main, .options-layout, .options-title{
         width: 1500px;
     }
 }
