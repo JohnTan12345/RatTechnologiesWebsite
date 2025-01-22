@@ -17,6 +17,8 @@
     <main>
         <!-- Carousel -->
 
+        <div id="navbarspacing"></div>
+
         <div id="myCarousel" class="carousel slide mb-6 ubuntu-regular" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
@@ -89,16 +91,19 @@
           </div>
 
         <div id="about-us">
+          <div>
             <img id="about-us-img" src="img/placeholder.jpeg">
-            <div id="about-us-text">
+            <div>
                 <h1 class="ubuntu-bold">Who are we?</h1>
                 <h5 class="ubuntu-regular">We are a team of PC builders who loves to build PCs for other people</h5>
                 <a href="contact.html"><div id="contact-us-button" class="ubuntu-bold">Contact Us</div></a>
             </div>
+          </div>
         </div>
     </main>
 
-    <navbar id="navbar" style="background-color: transparent;">
+    <header id="navbar">
+      <navbar style="background-color: transparent;">
         <a href="index.html"><img id="brand-logo" src="img/logo.png"></a>
         <ul id="navbar-buttons" class="ubuntu-bold">
             <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
@@ -106,7 +111,8 @@
             <a href="parts.html"><li class="navbar-button">PC Parts</li></a>
             <a href="login.html"><li id="navbar-login">Login</li></a>
         </ul>
-    </navbar>
+      </navbar>
+    </header>
 
     <footer>
         <img src="img/logo.png">
@@ -119,17 +125,3 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-
-<!-- Only this page has a special navbar -->
-<script>
-  const navbar = document.getElementById("navbar")
-
-  window.addEventListener("scroll", function() {
-      if (window.pageYOffset == 0) {
-          navbar.style.backgroundColor = "transparent"
-      } else {
-          navbar.style.backgroundColor = "#adadad"
-      }
-  })
-</script>
