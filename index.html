@@ -98,7 +98,7 @@
         </div>
     </main>
 
-    <navbar>
+    <navbar id="navbar" style="background-color: transparent;">
         <a href="index.html"><img id="brand-logo" src="img/logo.png"></a>
         <ul id="navbar-buttons" class="ubuntu-bold">
             <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
@@ -119,3 +119,17 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<!-- Only this page has a special navbar -->
+<script>
+  const navbar = document.getElementById("navbar")
+
+  window.addEventListener("scroll", function() {
+      if (window.pageYOffset == 0) {
+          navbar.style.backgroundColor = "transparent"
+      } else {
+          navbar.style.backgroundColor = "#adadad"
+      }
+  })
+</script>

@@ -1,11 +1,13 @@
 /* navbar space*/
 
 #navbarspacing {
-    height: 90px;
+    height: 110px;
+    padding: 10px;
 }
 
 /* navbar */
 navbar {
+    transition: 0.5s;
     position: fixed;
     top: 0;
     width: 100%;
@@ -48,6 +50,7 @@ a {
 }
 
 .navbar-button {
+    transition: 0.2s;
     background-color: white;
 }
 
@@ -172,7 +175,7 @@ footer > div {
     display: flex;
     align-items: center;
     justify-content: left;
-    margin: 50px 0px 25px 0px;
+    margin: 10px 0px 10px 0px;
     padding: 0px 20px;
     background-color: #7f7f7f;
     width: 100%;
@@ -180,21 +183,64 @@ footer > div {
     
 }
 
+.options-title {
+    padding: 0px 10px;
+}
+
 .item-option {
-    height: 330px;
-    width: 250px;
+    position: relative;
+    height: 430px;
+    width: 350px;
     background-color: orange;
 }
 
 .item-option > img  {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
 }
 
 .item-option > div {
     position: absolute;
+    background-color: orange;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: end;
-    width: 250px;
+    width: 350px;
+    padding: 10px 0px;
 }
+
+.item-option > div > div {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.item-option > div > div > h5 {
+    width: 175px;
+    padding-left: 20px;
+}
+
+.customize {
+    transition: .5s;
+    background-color: #2a8fe2;
+    border-radius: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-color: #1C75BC;
+}
+
+.customize:hover {
+    background-color: #1C75BC;
+}
+
+.item-option:hover .hidden * {
+    display: block;
+}
+
+.hidden *{
+    display: none;
+}
+
+/* Screen Sizing */
