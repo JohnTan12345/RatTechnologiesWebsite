@@ -12,13 +12,40 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body>
+<body onload="customizepageloaded()">
     <div id="navbarspacing"></div>
 
     <main>
-
-
         
+        <div id="customizecontents">
+
+            <img id="customizeitemimg" src="img/placeholder.jpeg">
+
+            <div id="customizeoptions" class="ubuntu-medium">
+                <h1 id="itemname" class="ubuntu-bold">Cheese Power</h1>
+                <div class="customizespecoptions">
+                    <h2 id="cpu" data-option="">CPU: AA AAAAAA</h2>
+                    <h2 id="gpu" data-option="">GPU: AAA 9999</h2>
+                </div>
+                <div class="customizespecoptions">
+                    <h2 id="ram" data-option="">RAM: AAAAA</h2>
+                    <h2 id="storage" data-option="">Storage: AAAAA</h2>
+                </div>
+                <div class="customizespecoptions">
+                    <h2 id="monitor" data-option="">Monitor: AAAAA</h2>
+                    <h2 id="peripherals" data-option="">Peripherals: AAAAA</h2>
+                </div>
+                <div class="customizespecoptions">
+                    <h2 id="osver" data-option="">OS: AAAAA</h2>
+                </div>
+                <div id="customizepriceconfirm">
+                    <h1>S$9,999</h1>
+                    <h5>You will earn: 3000 Points</h5>
+                    <button id="customizeconfirm" class="ubuntu-medium" onclick="addtocart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <header id="navbar">
@@ -31,7 +58,7 @@
               <a href="login.html"><li id="navbar-login">Login</li></a>
           </ul>
         </navbar>
-      </header>
+    </header>
 
     <footer>
         <img src="img/logo.png">

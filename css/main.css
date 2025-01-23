@@ -5,6 +5,18 @@
     padding: 10px;
 }
 
+/* body */
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+body::after {
+    content: "";
+    display: block;
+    height: 300px;
+}
+
 /* navbar */
 header {
     transition: 0.5s;
@@ -63,6 +75,31 @@ a {
 
 .navbar-button:hover {
     background-color: #1C75BC;
+}
+
+/* footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    height: 250px;
+    background-color: #adadad;
+}
+
+footer > img {
+    border-right-style: solid;
+    padding-right: 15px;
+}
+
+footer > div {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    flex-direction: column;
 }
 
 /* carousel */
@@ -154,29 +191,6 @@ a {
     height: 50px;
     width: 120px;
     border-radius: 5px;
-}
-
-/* footer */
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    height: 250px;
-    background-color: #adadad;
-}
-
-footer > img {
-    border-right-style: solid;
-    padding-right: 15px;
-}
-
-footer > div {
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    flex-direction: column;
 }
 
 /* options */
@@ -284,7 +298,7 @@ footer > div {
     padding: 10px;
     gap: 15px;
     width: 100%;
-    margin: 20px 0px;
+    margin-bottom: 20px;
 }
 
 #item-banner > img {
@@ -292,6 +306,62 @@ footer > div {
     height: 150px;
 }
 
+/* Customize Page */
+
+#customizecontents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 10vh;
+    gap: 20px;
+}
+
+#customizeitemimg {
+    width: 420px;
+    height: 400px;
+    padding-right: 20px;
+    border-right-style: solid;
+}
+
+#itemname {
+    border-bottom-style: solid;
+}
+
+#customizeoptions {
+    position: relative;
+    height: 400px;
+}
+
+.customizespecoptions {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.customizespecoptions > h2 {
+    width: 300px;
+}
+
+#customizepriceconfirm {
+    position: absolute;
+    bottom: 0px;
+}
+
+
+#customizeconfirm {
+    transition: .5s;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1C75BC;
+    border-style: none;
+    color: white;
+    font-size: 20px;
+}
+
+#customizeconfirm:hover {
+    background-color: #2a8fe2;
+}
 /* Screen Sizing */
 
 @media (min-width: 1500px) {
@@ -300,7 +370,7 @@ footer > div {
         flex-direction: column;
         align-items: center;
     }
-    navbar, .carousel, #about-us > div, #main, .options-layout, .options-title{
+    navbar, .carousel, #about-us > div, #main, #customizecontents, .options-layout, .options-title{
         width: 1500px;
     }
 }
