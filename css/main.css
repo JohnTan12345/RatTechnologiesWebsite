@@ -374,6 +374,8 @@ footer > div {
     background-color: #2a8fe2;
 }
 
+/* Reviews */
+
 #reviewsalign {
     display: flex;
     justify-content: center;
@@ -444,6 +446,35 @@ footer > div {
     display: flex;
     align-items: center;
     margin-right: 10px;
+}
+
+
+/* Item Bought */
+#screen-blur {
+    position: fixed;
+    top: 0px;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 60%;
+}
+
+#item-bought-align {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background: none;
+}
+
+#item-bought-card {
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    border-radius: 20px;
 }
 /* Screen Sizing */
 
