@@ -318,10 +318,21 @@ footer > div {
 }
 
 #customizeitemimg {
-    width: 420px;
+    width: 400px;
     height: 400px;
+}
+
+#customizeimgandratings {
+    display: flex;
+    flex-direction: column;
     padding-right: 20px;
     border-right-style: solid;
+    gap: 10px;
+}
+
+#ratings {
+    display: flex;
+    gap: 20px;
 }
 
 #itemname {
@@ -362,6 +373,52 @@ footer > div {
 #customizeconfirm:hover {
     background-color: #2a8fe2;
 }
+
+#reviewsalign {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#reviews {
+    width: 80vi;
+    height: 600px;
+}
+
+#reviewheader {
+    padding: 5px;
+    border-bottom-style: solid;
+}
+
+.review {
+    position: relative;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #adadad;
+}
+
+.review-content {
+    display: flex;
+    gap: 5px;
+    min-height: 100px;
+    border-radius: 1
+}
+
+.review-content > img {
+    width: 50px;
+    height: 50px;
+}
+
+.button-align {
+    display: flex;
+    justify-content: end;
+}
+
+.helpful-button {
+    padding: 10px;
+}
+
 /* Screen Sizing */
 
 @media (min-width: 1500px) {
@@ -372,5 +429,8 @@ footer > div {
     }
     navbar, .carousel, #about-us > div, #main, #customizecontents, .options-layout, .options-title{
         width: 1500px;
+    }
+    #reviews {
+        width: 1200px;
     }
 }
