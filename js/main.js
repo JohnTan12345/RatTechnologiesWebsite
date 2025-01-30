@@ -30,3 +30,8 @@ function helpfulchange(review_id) {
         }
     }
 }
+
+function goback() {
+    const prev_page = localStorage.getItem("previous") ? localStorage.getItem("previous") : "index.html"
+    window.location.href = prev_page
+}
