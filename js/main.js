@@ -39,3 +39,7 @@ function goback() {
     const prev_page = localStorage.getItem("previous") ? localStorage.getItem("previous") : "index.html"
     window.location.href = prev_page
 }
+
+function remove(item_id) {
+    console.log(item_id)
+}
