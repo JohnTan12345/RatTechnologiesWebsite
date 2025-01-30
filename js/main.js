@@ -8,7 +8,11 @@ function customizepageloaded() {
 }
 
 function addtocart() {
-    alert(localStorage.getItem("previous"))
+    const screen_blur = document.getElementById("screen-blur")
+    const item_bought_align = document.getElementById("item-bought-align")
+
+    screen_blur.classList.add("cardshow")
+    item_bought_align.classList.add("cardshow")
 }
 
 function helpfulagree(review_id) {
