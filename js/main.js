@@ -48,3 +48,114 @@ function remove_item(item_id) {
         item_element.item(i).remove()
     }
 }
+
+function gettotal() {
+    const items = document.getElementById("items").children
+    const bill = document.getElementById("bill")
+
+    var total = 0
+
+    for (var i = 0; i < items.length; i++) {
+        const item = items.item(i)
+        const cost = Number(item.dataset.cost)
+        const item_id = item.dataset.id
+        const item_name = item.dataset.itemname
+
+        total += cost
+
+        const cost_string = addcommasinnumber(cost)
+
+        // Create Item Bill
+
+        console.log(bill)
+
+        const bill_bg = document.createElement("div")
+        bill_bg.classList.add("item-bill")
+        bill_bg.classList.add(item_id)
+        bill.appendChild(bill_bg)
+
+        const bill_item_name = document.createElement("h4")
+        bill_item_name.classList.add("item-name")
+        bill_item_name.innerHTML = item_name
+        bill_bg.appendChild(bill_item_name)
+
+        const bill_item_cost = document.createElement("h4")
+        bill_item_cost.classList.add("item-cost")
+        bill_item_cost.innerHTML = cost_string
+        bill_bg.appendChild(bill_item_cost)
+    }
+
+    // Create Final Cost
+    
+    const final_bg = document.createElement("div")
+    final_bg.id = "total-cost-points"
+    bill.appendChild(final_bg)
+
+    // Total Cost before GST
+
+    const total_string = addcommasinnumber(total)
+
+    const total_cost_bg = document.createElement("div")
+    total_cost_bg.classList.add("item-bill")
+    total_cost_bg.id = "total-item-cost-div"
+    final_bg.appendChild(total_cost_bg)
+
+    const total_text = document.createElement("h4")
+    total_text.classList.add("item-name")
+    total_cost_bg.appendChild(total_text)
+    total_text.innerHTML = "Total"
+
+    const total_cost = document.createElement("h4")
+    total_cost.classList.add("item-cost")
+    total_cost_bg.appendChild(total_cost)
+    total_cost.innerHTML = total_string
+
+    // GST
+
+    const GST = Math.round(total * 0.09)
+
+    const GST_string = addcommasinnumber(GST)
+
+    const GST_bg = document.createElement("div")
+    GST_bg.classList.add("item-bill")
+    final_bg.appendChild(GST_bg)
+
+    const GST_text = document.createElement("h4")
+    GST_text.classList.add("item-name")
+    GST_bg.appendChild(GST_text)
+    GST_text.innerHTML = "GST"
+
+    const GST_cost = document.createElement("h4")
+    GST_cost.classList.add("item-cost")
+    GST_bg.appendChild(GST_cost)
+    GST_cost.innerHTML = GST_string
+}
+
+function addcommasinnumber(value) {
+    var value_string = "S$"
+
+    // number of digits in the first set
+    
+    const first_set_amount = value.toString().length % 3
+
+    for (var i = 0; i < value.toString().length; i++) {
+        const digit = value.toString()[i]
+        const placement = i + 1
+        
+        value_string += digit
+
+        // Add in the commas between the numbers
+
+        if ((placement - first_set_amount)% 3 == 0 && placement != value.toString().length && value.toString()[placement] != ".") {
+            value_string += ","
+        }
+    }
+
+    return value_string
+}
+
+document.getElementById("point-option").addEventListener("change", function(e) {
+    if (document.getElementById("point-option0").checked) {
+        alert("yes")
+    }
+})

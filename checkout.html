@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body>
+<body onload="gettotal()">
 
     <div id="navbarspacing"></div>
 
@@ -24,7 +24,7 @@
                 
                 <div id="items">
 
-                    <div class="item fjiowasjmdfiawsdawskpoasdw" data-id="fjiowasjmdfiawsdawskpoasdw">
+                    <div class="item fjiowasjmdfiawsdawskpoasdw" data-id="fjiowasjmdfiawsdawskpoasdw" data-itemname="Item E" data-cost="9999">
                         <img class="item-img" src="img/placeholder.jpeg">
 
                         <div class="item-specs ubuntu-medium">
@@ -45,32 +45,28 @@
                 <div id="total-payment">
                     
                     <div id="bill">
-                        <div class="item-bill fjiowasjmdfiawsdawskpoasdw" data-cost="9999">
-                            <h4 class="item-name">Item A</h4>
-                            <h4 class="item-cost">S$9,999</h4>
-                        </div>
                         <div id="total-cost-points">
-                            <div class="item-bill" id="total-item-cost-div">
-                                <h4 class="item-name">Total</h4>
-                                <h4 class="item-cost" id="total-item-cost">S$9,999</h4>
-                            </div>
                             <div class="item-bill">
                                 <h4 class="item-name">GST</h4>
-                                <h4 class="item-cost" id="gst">S$300</h4>
+                                <h4 class="item-cost">S$0</h4>
                             </div>
                             <div class="item-bill">
                                 <h4 class="item-name">Points</h4>
-                                <h4 class="item-cost" id="total-points">500</h4>
+                                <h4 class="item-cost">0</h4>
                             </div>
                             <div class="item-bill">
                                 <h4 class="item-name">To Pay</h4>
-                                <h4 class="item-cost" id="total-cost">S$10,299</h4>
+                                <h4 class="item-cost">S$0</h4>
                             </div>
                         </div>
                     </div>
-                    <div id="use-points">
-                        <input type="radio" name="point-option" value="0">
-                        <label for="point-option">Use Points</label>
+                    <div id="point-option">
+                        <input type="checkbox" name="point-option" id="point-option0" value="true"/>
+                        <label for="point-option0"><h5>Use Points</h5></label>
+                    </div>
+                    <div id="point-option">
+                        <input type="radio" name="payment-option" id="payment-option0" value="true"/>
+                        <label for="payment-option0"><h5>PayNow</h5></label>
                     </div>
                 </div>
 

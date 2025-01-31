@@ -605,6 +605,21 @@ footer > div {
 }
 
 /* Points Option */
+
+#point-option {
+    display: flex;
+    gap: 10px;
+    background-color: #1C75BC;
+    padding-left: 20px;
+}
+
+#point-option > label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
 /* Screen Sizing */
 
 @media (min-width: 1500px) {
