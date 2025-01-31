@@ -40,6 +40,11 @@ function goback() {
     window.location.href = prev_page
 }
 
-function remove(item_id) {
-    console.log(item_id)
+function remove_item(item_id) {
+    const item_element = document.getElementsByClassName(item_id)
+
+    for (var i = 0; i < item_element.length;) {
+        console.log(item_element.item(i))
+        item_element.item(i).remove()
+    }
 }

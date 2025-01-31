@@ -542,7 +542,14 @@ footer > div {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 50%;
+}
+
+#items {
+    width: 70%;
+}
+
+#total-payment {
+    width: 20%;
 }
 
 /* Item Template */
@@ -561,6 +568,43 @@ footer > div {
     height: 250px;
 }
 
+/* Bill */
+
+#bill {
+    position: relative;
+    background-color: #1C75BC;
+    min-height: 99.81px;
+    padding: 20px;
+    padding-bottom: 119.81;
+}
+
+.item-bill {
+    width: 100%;
+    display: flex;
+}
+
+.item-bill > h4 {
+    width: 50%;
+}
+
+.item-name {
+    text-align: left;
+}
+
+.item-cost {
+    text-align: right;
+}
+
+#total-cost-points {
+    margin-top: 20px;
+}
+
+#total-item-cost-div {
+    border-top-style: solid;
+    padding-top: 10px;
+}
+
+/* Points Option */
 /* Screen Sizing */
 
 @media (min-width: 1500px) {
