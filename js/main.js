@@ -112,7 +112,7 @@ function gettotal() {
 
     // GST
 
-    const GST = Math.round(total * 0.09)
+    const GST = (total * 0.09).toFixed(2)
 
     const GST_string = addcommasinnumber(GST)
 
@@ -129,6 +129,46 @@ function gettotal() {
     GST_cost.classList.add("item-cost")
     GST_bg.appendChild(GST_cost)
     GST_cost.innerHTML = GST_string
+
+    // Points
+
+    const Points = Math.round(total/20)
+
+    const Points_bg = document.createElement("div")
+    Points_bg.classList.add("item-bill")
+    final_bg.appendChild(Points_bg)
+
+    const Points_text = document.createElement("h4")
+    Points_text.classList.add("item-name")
+    Points_bg.appendChild(Points_text)
+    Points_text.innerHTML = "Points Earned"
+
+    const Points_amount = document.createElement("h4")
+    Points_amount.classList.add("item-cost")
+    Points_bg.appendChild(Points_amount)
+    Points_amount.innerHTML = Points
+
+    // Amount Payab;e
+
+    const To_Pay = total + parseFloat(GST)
+
+    const To_Pay_String = addcommasinnumber(To_Pay)
+
+    const To_Pay_bg = document.createElement("div")
+    To_Pay_bg.classList.add("item-bill")
+    final_bg.appendChild(To_Pay_bg)
+
+    const To_Pay_text = document.createElement("h4")
+    To_Pay_text.classList.add("item-name")
+    To_Pay_bg.appendChild(To_Pay_text)
+    To_Pay_text.innerHTML = "To Pay"
+
+    const To_Pay_amount = document.createElement("h4")
+    To_Pay_amount.classList.add("item-cost")
+    To_Pay_bg.appendChild(To_Pay_amount)
+    To_Pay_amount.innerHTML = To_Pay_String
+
+
 }
 
 function addcommasinnumber(value) {
