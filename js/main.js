@@ -132,7 +132,7 @@ function gettotal() {
 
     // Points
 
-    const Points = Math.round(total/20)
+    const Points_Earned = Math.round(total/20)
 
     const Points_bg = document.createElement("div")
     Points_bg.classList.add("item-bill")
@@ -146,9 +146,9 @@ function gettotal() {
     const Points_amount = document.createElement("h4")
     Points_amount.classList.add("item-cost")
     Points_bg.appendChild(Points_amount)
-    Points_amount.innerHTML = Points
+    Points_amount.innerHTML = Points_Earned
 
-    // Amount Payab;e
+    // Amount Payable
 
     const To_Pay = total + parseFloat(GST)
 
@@ -165,9 +165,18 @@ function gettotal() {
 
     const To_Pay_amount = document.createElement("h4")
     To_Pay_amount.classList.add("item-cost")
+    To_Pay_amount.id = "Amount-Payable"
+    To_Pay_amount.dataset.PayableAmount = To_Pay
     To_Pay_bg.appendChild(To_Pay_amount)
     To_Pay_amount.innerHTML = To_Pay_String
 
+    // Point Option
+
+    const Point_Option = document.getElementById("point-option")
+
+    const points = 200
+
+    Point_Option.dataset.points = points
 
 }
 
@@ -194,8 +203,22 @@ function addcommasinnumber(value) {
     return value_string
 }
 
-document.getElementById("point-option").addEventListener("change", function(e) {
+document.getElementById("point-option").addEventListener("change", function() {
+    const Payable_Amount_Display = document.getElementById("Amount-Payable")
+    const Point_Option = document.getElementById("point-option")
+    const Total_Display = document.getElementById("Amount-Payable")
+
     if (document.getElementById("point-option0").checked) {
-        alert("yes")
+        const Point_to_Dollars = Point_Option.dataset.points / 10
+        const Payable_Amount_After_Points = Payable_Amount_Display.dataset.PayableAmount - Point_to_Dollars
+
+        const Payable_Amount_After_Points_String = addcommasinnumber(Payable_Amount_After_Points)
+
+        Total_Display.innerHTML = Payable_Amount_After_Points_String
+        
+    } else {
+        const Payable_Amount_String = addcommasinnumber(Total_Display.dataset.PayableAmount)
+
+        Total_Display.innerHTML = Payable_Amount_String
     }
 })
