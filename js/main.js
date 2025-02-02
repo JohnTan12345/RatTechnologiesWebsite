@@ -180,6 +180,22 @@ function gettotal() {
 
 }
 
+function payment(type) {
+    const Payable_Amount = document.getElementById("Amount-Payable").dataset.PayableAmount
+
+    // Initiate Lucky Draw
+
+    const chance_index = Math.random()
+
+    if (chance_index > 0.1) {
+        alert("You won 10 dollars!")
+    } else if (0.02 < chance_index <= 0.1) {
+        alert("You won 500 dollars!")
+    } else {
+        alert("You won a free monitor!")
+    }
+}
+
 function addcommasinnumber(value) {
     var value_string = "S$"
 
