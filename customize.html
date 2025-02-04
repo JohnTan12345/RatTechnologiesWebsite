@@ -35,19 +35,63 @@
             <div id="customizeoptions" class="ubuntu-medium">
                 <h1 id="itemname" class="ubuntu-bold" data-name="Cheese Power">Cheese Power</h1>
                 <div class="customizespecoptions">
-                    <h2 id="cpu" data-option="i9 14900KS" data-price="799">CPU: AA AAAAAA</h2>
-                    <h2 id="gpu" data-option="RTX 5090" data-price="899">GPU: AAA 9999</h2>
+                    <label class="spec-label" for="cpu">CPU:</label>
+                    <select name="cpu" id="cpu">
+                        <option value='{"item":"i5 13400K", "price":"430"}'>i5 13400KF</option>
+                        <option value='{"item":"i7 13600K", "price":"430"}'>i7 13600KF</option>
+                        <option value='{"item":"i9 13600K", "price":"430"}'>i9 13900KF</option>
+                    </select>
+
+                    <label class="spec-label" for="gpu">GPU:</label>
+                    <select name="gpu" id="gpu">
+                        <option value='{"item":"RTX 4060", "price":"800"}'>RTX 4060</option>
+                        <option value='{"item":"RTX 5070", "price":"1600"}'>RTX 5070</option>
+                        <option value='{"item":"RTX 5080", "price":"2200"}'>RTX 5080</option>
+                        <option value='{"item":"RTX 5090", "price":"5200"}'>RTX 5090</option>
+                    </select>
                 </div>
                 <div class="customizespecoptions">
-                    <h2 id="ram" data-option="128 GB" data-price="499">RAM: AAAAA</h2>
-                    <h2 id="storage" data-option="512 GB" data-price="299">Storage: AAAAA</h2>
+                    <label class="spec-label" for="ram">RAM:</label>
+                    <select name="ram" id="ram">
+                        <option value='{"item":"16GB", "price":"200"}'>16GB</option>
+                        <option value='{"item":"32GB", "price":"300"}'>32GB</option>
+                        <option value='{"item":"48GB", "price":"350"}'>48GB</option>
+                        <option value='{"item":"64GB", "price":"400"}'>64GB</option>
+                    </select>
+
+                    <label class="spec-label" for="storage">Storage:</label>
+                    <select name="storage" id="storage">
+                        <option value='{"item":"256GB", "price":"95"}'>256GB</option>
+                        <option value='{"item":"512GB", "price":"140"}'>512GB</option>
+                        <option value='{"item":"1TB", "price":"220"}'>1TB</option>
+                        <option value='{"item":"2TB", "price":"440"}'>2TB</option>
+                    </select>
                 </div>
                 <div class="customizespecoptions">
-                    <h2 id="monitor" data-option="Some Form Of Monitor" data-price="700">Monitor: AAAAA</h2>
-                    <h2 id="peripherals" data-option="MEGA Mouse" data-price="200">Peripherals: AAAAA</h2>
+                    <label class="spec-label" for="monitor">Monitor:</label>
+                    <select name="monitor" id="monitor">
+                        <option value='{"item":"None", "price":"0"}'>None</option>
+                        <option value='{"item":"16\" 1080P 144hz Monitor", "price":"320"}'>16" 1080P 144hz Monitor</option>
+                        <option value='{"item":"16\" 1440p 144hz Monitor", "price":"440"}'>16" 1440p 144hz Monitor</option>
+                        <option value='{"item":"16\" 4k 144hz Monitor", "price":"520"}'>16" 4k 144hz Monitor</option>
+                    </select>
+
+                    <label class="spec-label" for="peripherals">Peripherals:</label>
+                    <select name="peripherals" id="peripherals">
+                        <option value='{"item":"None", "price":"0"}'>None</option>
+                        <option value='{"item":"Gaming Mouse", "price":"40"}'>Gaming Mouse</option>
+                        <option value='{"item":"Gaming Headphone", "price":"70"}'>Gaming Headphone</option>
+                        <option value='{"item":"Gaming Mouse + Gaming Headphone", "price":"520"}'>Gaming Mouse + Gaming Headphones</option>
+                    </select>
                 </div>
                 <div class="customizespecoptions">
-                    <h2 id="osver" data-option="Win 11 Activated" data-price="300">OS: AAAAA</h2>
+                    <label class="spec-label" for="peripherals">Peripherals:</label>
+                    <select name="peripherals" id="peripherals">
+                        <option value='{"item":"None", "price":"0"}'>None</option>
+                        <option value='{"item":"Gaming Mouse", "price":"40"}'>Gaming Mouse</option>
+                        <option value='{"item":"Gaming Headphone", "price":"70"}'>Gaming Headphone</option>
+                        <option value='{"item":"Gaming Mouse + Gaming Headphone", "price":"520"}'>Gaming Mouse + Gaming Headphones</option>
+                    </select>
                 </div>
                 <div id="customizepriceconfirm">
                     <h1 id="total-text" data-total="9999">S$9,999</h1>

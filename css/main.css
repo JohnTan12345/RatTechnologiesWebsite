@@ -374,6 +374,10 @@ footer > div {
     background-color: #2a8fe2;
 }
 
+.spec-label {
+    font-size: 30px;
+}
+
 /* Reviews */
 
 #reviewsalign {
