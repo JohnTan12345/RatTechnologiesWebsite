@@ -30,8 +30,12 @@ function addtocart() {
 
     const total = document.getElementById("total-text").dataset.total
     const points = document.getElementById("points-text").dataset.points
+    
+    // Genereate a unique ID
 
-    const item = {"name" : item_name, "cpu" : cpu_choice, "gpu" : gpu_choice, "ram" : ram_choice, "storage" : storage_choice, "monitor" : monitor_choice, "peripherals" : peripherals_choice, "osver" : osver_choice, "total" : total, "points" : points}
+    const id = guidGenerator()
+
+    const item = {"id" : id, "name" : item_name, "cpu" : cpu_choice, "gpu" : gpu_choice, "ram" : ram_choice, "storage" : storage_choice, "monitor" : monitor_choice, "peripherals" : peripherals_choice, "osver" : osver_choice, "total" : total, "points" : points}
 
     // Add to cart list
     cart.push(item)
@@ -72,6 +76,41 @@ function goback() {
 function remove_item(item_id) {
     const item_element = document.getElementsByClassName(item_id)
 
+    const cart = JSON.parse(localStorage.getItem("cart"))
+
+    cart.forEach(item => {
+        if (item.id == item_id) {
+            const index = cart.indexOf(item)
+            if (index > -1) {
+                cart.splice(index, 1)
+                console.log(cart)
+                localStorage.setItem("cart", JSON.stringify(cart))
+
+                const total_display = document.getElementById("total-amount")
+                const gst_display = document.getElementById("gst-amount")
+                const points_display = document.getElementById("points-amount")
+                const payable_display = document.getElementById("amount-payable")
+
+                const new_total = Number(total_display.dataset.amount) - Number(item.total)
+                const new_gst = new_total * 0.09
+                const new_points = Number(points_display.dataset.amount) - Number(item.points)
+                const new_payable = new_total + new_gst
+
+                total_display.dataset.amount = new_total
+                total_display.innerHTML = addcommasinnumber(new_total)
+
+                gst_display.dataset.amount = new_gst
+                gst_display.innerHTML = addcommasinnumber(new_gst)
+
+                points_display.dataset.amount = new_points
+                points_display.innerHTML = new_points
+
+                payable_display.dataset.amount = new_payable
+                payable_display.innerHTML = addcommasinnumber(new_payable)
+            }
+        }
+    })
+    
     for (var i = 0; i < item_element.length;) {
         console.log(item_element.item(i))
         item_element.item(i).remove()
@@ -79,8 +118,99 @@ function remove_item(item_id) {
 }
 
 function gettotal() {
-    const items = document.getElementById("items").children
-    const bill = document.getElementById("bill")    
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    const items_div = document.getElementById("items")
+    const items = items_div.children
+    const bill = document.getElementById("bill")
+
+    var total_points = 0
+    // Create Item
+
+    cart.forEach(item => {
+
+        // Add points to total
+
+        total_points += Number(item.points) 
+
+        // Item Div Background
+        
+        const item_bg = document.createElement("div")
+        item_bg.classList.add("item", item.id)
+        item_bg.dataset.itemname = item.name
+        item_bg.dataset.cost = item.total
+        item_bg.dataset.points = item.points
+        item_bg.dataset.id = item.id
+        items_div.appendChild(item_bg)
+
+        // Item Image
+
+        const item_img = document.createElement("img")
+        item_img.classList.add("item-img")
+        item_img.src = `img/${item.name}.png`
+        item_bg.appendChild(item_img)
+
+        // Item Specs Div
+
+        const item_specs_bg = document.createElement("div")
+        item_specs_bg.classList.add("item-specs", "ubuntu-medium")
+        item_bg.appendChild(item_specs_bg)
+
+        // Item Name
+
+        const item_name = document.createElement("h1")
+        item_name.innerHTML = item.name
+        item_specs_bg.appendChild(item_name)
+        
+        // CPU Spec
+
+        const cpu_choice = document.createElement("h4")
+        cpu_choice.innerHTML = `CPU: ${item.cpu}`
+        item_specs_bg.appendChild(cpu_choice)
+                
+        // GPU Spec
+
+        const gpu_choice = document.createElement("h4")
+        gpu_choice.innerHTML = `GPU: ${item.gpu}`
+        item_specs_bg.appendChild(gpu_choice)
+                        
+        // RAM Spec
+
+        const ram_choice = document.createElement("h4")
+        ram_choice.innerHTML = `RAM: ${item.ram}`
+        item_specs_bg.appendChild(ram_choice)
+                        
+        // Storage Spec
+
+        const storage_choice = document.createElement("h4")
+        storage_choice.innerHTML = `Storage: ${item.storage}`
+        item_specs_bg.appendChild(storage_choice)
+                        
+        // OS Version Choice
+
+        const osver_choice = document.createElement("h4")
+        osver_choice.innerHTML = `GPU: ${item.osver}`
+        item_specs_bg.appendChild(osver_choice)
+                        
+        // Monitor Choice
+
+        const monitor_choice = document.createElement("h4")
+        monitor_choice.innerHTML = `GPU: ${item.monitor}`
+        item_specs_bg.appendChild(monitor_choice)
+                        
+        // Peripherals Choice
+
+        const peripherals_choice = document.createElement("h4")
+        peripherals_choice.innerHTML = `GPU: ${item.peripherals}`
+        item_specs_bg.appendChild(peripherals_choice)
+
+        // Remove Button
+
+        const remove_button = document.createElement("button")
+        remove_button.classList.add("remove-button")
+        remove_button.onclick = function() {remove_item(item.id)}
+        remove_button.innerHTML = "Remove"
+        item_specs_bg.appendChild(remove_button)
+    });
 
     var total = 0
 
@@ -95,8 +225,6 @@ function gettotal() {
         const cost_string = addcommasinnumber(cost)
 
         // Create Item Bill
-
-        console.log(bill)
 
         const bill_bg = document.createElement("div")
         bill_bg.classList.add("item-bill")
@@ -136,8 +264,11 @@ function gettotal() {
 
     const total_cost = document.createElement("h4")
     total_cost.classList.add("item-cost")
+    total_cost.id = "total-amount"
+    total_cost.dataset.amount = total
     total_cost_bg.appendChild(total_cost)
     total_cost.innerHTML = total_string
+
 
     // GST
 
@@ -156,12 +287,12 @@ function gettotal() {
 
     const GST_cost = document.createElement("h4")
     GST_cost.classList.add("item-cost")
+    GST_cost.id = "gst-amount"
+    GST_cost.dataset.amount = GST
     GST_bg.appendChild(GST_cost)
     GST_cost.innerHTML = GST_string
 
     // Points
-
-    const Points_Earned = Math.round(total/20)
 
     const Points_bg = document.createElement("div")
     Points_bg.classList.add("item-bill")
@@ -174,8 +305,10 @@ function gettotal() {
 
     const Points_amount = document.createElement("h4")
     Points_amount.classList.add("item-cost")
+    Points_amount.id = "points-amount"
+    Points_amount.dataset.amount = total_points
     Points_bg.appendChild(Points_amount)
-    Points_amount.innerHTML = Points_Earned
+    Points_amount.innerHTML = total_points
 
     // Amount Payable
 
@@ -194,23 +327,17 @@ function gettotal() {
 
     const To_Pay_amount = document.createElement("h4")
     To_Pay_amount.classList.add("item-cost")
-    To_Pay_amount.id = "Amount-Payable"
-    To_Pay_amount.dataset.PayableAmount = To_Pay
+    To_Pay_amount.id = "amount-payable"
+    To_Pay_amount.dataset.amount = To_Pay
     To_Pay_bg.appendChild(To_Pay_amount)
     To_Pay_amount.innerHTML = To_Pay_String
 
     // Point Option
 
-    const Point_Option = document.getElementById("point-option")
-
-    const points = 200
-
-    Point_Option.dataset.points = points
-
 }
 
 function payment(type) {
-    const Payable_Amount = document.getElementById("Amount-Payable").dataset.PayableAmount
+    const Payable_Amount = document.getElementById("amount-payable").dataset.amount
 
     // Initiate Lucky Draw
 
@@ -248,21 +375,29 @@ function addcommasinnumber(value) {
     return value_string
 }
 
+// Generates an id
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 document.getElementById("point-option").addEventListener("change", function() {
-    const Payable_Amount_Display = document.getElementById("Amount-Payable")
+    const Payable_Amount_Display = document.getElementById("amount-payable")
     const Point_Option = document.getElementById("point-option")
-    const Total_Display = document.getElementById("Amount-Payable")
+    const Total_Display = document.getElementById("amount-payable")
 
     if (document.getElementById("point-option0").checked) {
         const Point_to_Dollars = Point_Option.dataset.points / 10
-        const Payable_Amount_After_Points = Payable_Amount_Display.dataset.PayableAmount - Point_to_Dollars
+        const Payable_Amount_After_Points = Payable_Amount_Display.dataset.amount - Point_to_Dollars
 
         const Payable_Amount_After_Points_String = addcommasinnumber(Payable_Amount_After_Points)
 
         Total_Display.innerHTML = Payable_Amount_After_Points_String
         
     } else {
-        const Payable_Amount_String = addcommasinnumber(Total_Display.dataset.PayableAmount)
+        const Payable_Amount_String = addcommasinnumber(Total_Display.dataset.amount)
 
         Total_Display.innerHTML = Payable_Amount_String
     }
