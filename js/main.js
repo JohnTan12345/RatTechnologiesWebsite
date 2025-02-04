@@ -11,6 +11,35 @@ function addtocart() {
     const screen_blur = document.getElementById("screen-blur")
     const item_bought_align = document.getElementById("item-bought-align")
 
+    // Add to cart
+    
+    var cart = JSON.parse(localStorage.getItem("cart")) || []
+
+    // Get item info
+
+    const item_name = document.getElementById("itemname").dataset.name
+    const cpu_choice = document.getElementById("cpu").dataset.option
+    const gpu_choice = document.getElementById("gpu").dataset.option
+    const ram_choice = document.getElementById("ram").dataset.option
+    const storage_choice = document.getElementById("storage").dataset.option
+    const monitor_choice = document.getElementById("monitor").dataset.option
+    const peripherals_choice = document.getElementById("peripherals").dataset.option
+    const osver_choice = document.getElementById("osver").dataset.option
+
+    // Get Total & Points
+
+    const total = document.getElementById("total-text").dataset.total
+    const points = document.getElementById("points-text").dataset.points
+
+    const item = {"name" : item_name, "cpu" : cpu_choice, "gpu" : gpu_choice, "ram" : ram_choice, "storage" : storage_choice, "monitor" : monitor_choice, "peripherals" : peripherals_choice, "osver" : osver_choice, "total" : total, "points" : points}
+
+    // Add to cart list
+    cart.push(item)
+
+    localStorage.setItem("cart", JSON.stringify(cart))
+
+    // Blur out the page
+
     screen_blur.classList.add("cardshow")
     item_bought_align.classList.add("cardshow")
 }
@@ -51,7 +80,7 @@ function remove_item(item_id) {
 
 function gettotal() {
     const items = document.getElementById("items").children
-    const bill = document.getElementById("bill")
+    const bill = document.getElementById("bill")    
 
     var total = 0
 
