@@ -22,76 +22,87 @@
                 <img id="customizeitemimg" src="img/placeholder.jpeg">
                 <div id="ratings">
                     <h4>Ratings:</h4>
-                    <div id="stars">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="orange" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
-                    </div>
+                    <div id="stars" data-totalstars="5" data-totalreviews="1"></div>
+                    <h4 id="total-reviews"></h4>
                 </div>
             </div>
 
             <div id="customizeoptions" class="ubuntu-medium">
                 <h1 id="itemname" class="ubuntu-bold" data-name="Cheese Power">Cheese Power</h1>
                 <div class="customizespecoptions">
-                    <label class="spec-label" for="cpu">CPU:</label>
-                    <select name="cpu" id="cpu">
-                        <option value='{"item":"i5 13400K", "price":"430"}'>i5 13400KF</option>
-                        <option value='{"item":"i7 13600K", "price":"430"}'>i7 13600KF</option>
-                        <option value='{"item":"i9 13600K", "price":"430"}'>i9 13900KF</option>
-                    </select>
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="cpu">CPU:</label>
+                        <select name="cpu" id="cpu" onchange="optionchanged()">
+                            <option value='{"item":"i5 13400K", "price":"200"}'>Core i5 14400F -- Base</option>
+                            <option value='{"item":"i7 13600K", "price":"320"}'>Core Ultra 7 265KF -- S$120</option>
+                            <option value='{"item":"i9 13600K", "price":"430"}'>Core Ultra 9 285K -- S$230</option>
+                        </select>
+                    </div>
 
-                    <label class="spec-label" for="gpu">GPU:</label>
-                    <select name="gpu" id="gpu">
-                        <option value='{"item":"RTX 4060", "price":"800"}'>RTX 4060</option>
-                        <option value='{"item":"RTX 5070", "price":"1600"}'>RTX 5070</option>
-                        <option value='{"item":"RTX 5080", "price":"2200"}'>RTX 5080</option>
-                        <option value='{"item":"RTX 5090", "price":"5200"}'>RTX 5090</option>
-                    </select>
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="gpu">GPU:</label>
+                        <select name="gpu" id="gpu" onchange="optionchanged()">
+                            <option value='{"item":"RTX 4060", "price":"600"}'>RTX 4070 -- Base</option>
+                            <option value='{"item":"RTX 5070", "price":"800"}'>RTX 5070 -- S$200</option>
+                            <option value='{"item":"RTX 5080", "price":"1300"}'>RTX 5080 -- S$600</option>
+                            <option value='{"item":"RTX 5090", "price":"5200"}'>RTX 5090 -- S$4600</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="customizespecoptions">
-                    <label class="spec-label" for="ram">RAM:</label>
-                    <select name="ram" id="ram">
-                        <option value='{"item":"16GB", "price":"200"}'>16GB</option>
-                        <option value='{"item":"32GB", "price":"300"}'>32GB</option>
-                        <option value='{"item":"48GB", "price":"350"}'>48GB</option>
-                        <option value='{"item":"64GB", "price":"400"}'>64GB</option>
-                    </select>
 
-                    <label class="spec-label" for="storage">Storage:</label>
-                    <select name="storage" id="storage">
-                        <option value='{"item":"256GB", "price":"95"}'>256GB</option>
-                        <option value='{"item":"512GB", "price":"140"}'>512GB</option>
-                        <option value='{"item":"1TB", "price":"220"}'>1TB</option>
-                        <option value='{"item":"2TB", "price":"440"}'>2TB</option>
-                    </select>
-                </div>
                 <div class="customizespecoptions">
-                    <label class="spec-label" for="monitor">Monitor:</label>
-                    <select name="monitor" id="monitor">
-                        <option value='{"item":"None", "price":"0"}'>None</option>
-                        <option value='{"item":"16\" 1080P 144hz Monitor", "price":"320"}'>16" 1080P 144hz Monitor</option>
-                        <option value='{"item":"16\" 1440p 144hz Monitor", "price":"440"}'>16" 1440p 144hz Monitor</option>
-                        <option value='{"item":"16\" 4k 144hz Monitor", "price":"520"}'>16" 4k 144hz Monitor</option>
-                    </select>
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="ram">RAM:</label>
+                        <select name="ram" id="ram" onchange="optionchanged()">
+                            <option value='{"item":"16GB", "price":"200"}'>16GB</option>
+                            <option value='{"item":"32GB", "price":"300"}'>32GB</option>
+                            <option value='{"item":"48GB", "price":"350"}'>48GB</option>
+                            <option value='{"item":"64GB", "price":"400"}'>64GB</option>
+                        </select>
+                    </div>
 
-                    <label class="spec-label" for="peripherals">Peripherals:</label>
-                    <select name="peripherals" id="peripherals">
-                        <option value='{"item":"None", "price":"0"}'>None</option>
-                        <option value='{"item":"Gaming Mouse", "price":"40"}'>Gaming Mouse</option>
-                        <option value='{"item":"Gaming Headphone", "price":"70"}'>Gaming Headphone</option>
-                        <option value='{"item":"Gaming Mouse + Gaming Headphone", "price":"520"}'>Gaming Mouse + Gaming Headphones</option>
-                    </select>
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="storage">Storage:</label>
+                        <select name="storage" id="storage" onchange="optionchanged()">
+                            <option value='{"item":"256GB", "price":"95"}'>256GB</option>
+                            <option value='{"item":"512GB", "price":"140"}'>512GB</option>
+                            <option value='{"item":"1TB", "price":"220"}'>1TB</option>
+                            <option value='{"item":"2TB", "price":"440"}'>2TB</option>
+                        </select>
+                    </div>
                 </div>
+
                 <div class="customizespecoptions">
-                    <label class="spec-label" for="peripherals">Peripherals:</label>
-                    <select name="peripherals" id="peripherals">
-                        <option value='{"item":"None", "price":"0"}'>None</option>
-                        <option value='{"item":"Gaming Mouse", "price":"40"}'>Gaming Mouse</option>
-                        <option value='{"item":"Gaming Headphone", "price":"70"}'>Gaming Headphone</option>
-                        <option value='{"item":"Gaming Mouse + Gaming Headphone", "price":"520"}'>Gaming Mouse + Gaming Headphones</option>
-                    </select>
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="monitor">Monitor:</label>
+                        <select name="monitor" id="monitor" onchange="optionchanged()">
+                            <option value='{"item":"None", "price":"0"}'>None</option>
+                            <option value='{"item":"16\" 1080P 144hz Monitor", "price":"320"}'>16" 1080P 144hz Monitor</option>
+                            <option value='{"item":"16\" 1440p 144hz Monitor", "price":"440"}'>16" 1440p 144hz Monitor</option>
+                            <option value='{"item":"16\" 4k 144hz Monitor", "price":"520"}'>16" 4k 144hz Monitor</option>
+                        </select>
+                    </div>
+
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="peripherals">Peripherals:</label>
+                        <select name="peripherals" id="peripherals" onchange="optionchanged()">
+                            <option value='{"item":"None", "price":"0"}'>None</option>
+                            <option value='{"item":"Gaming Mouse", "price":"40"}'>Gaming Mouse</option>
+                            <option value='{"item":"Gaming Headphone", "price":"70"}'>Gaming Headphone</option>
+                            <option value='{"item":"Gaming Mouse + Gaming Headphone", "price":"520"}'>Gaming Mouse + Gaming Headphones</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="customizespecoptions">
+                    <div class="customize-spec-option">
+                        <label class="spec-label" for="osver">OS:</label>
+                        <select name="osver" id="osver" onchange="optionchanged()">
+                            <option value='{"item":"Windows 11 Unactivated", "price":"0"}'>Windows 11 Unactivated</option>
+                            <option value='{"item":"Windows 11 Home", "price":"100"}'>Windows 11 Home</option>
+                            <option value='{"item":"Windows 11 Pro", "price":"130"}'>Windows 11 Pro</option>
+                        </select>
+                    </div>
                 </div>
                 <div id="customizepriceconfirm">
                     <h1 id="total-text" data-total="9999">S$9,999</h1>
@@ -123,7 +134,7 @@
                         </div>
                     </div>
                     <div class="button-align">
-                        <label class="helpful-amount">73 Found This Helpful.</label>
+                        <label class="helpful-amount aa34rfdsefdsa" data-amount="73">73 Found This Helpful.</label>
                         <label class="helpful-text aa34rfdsefdsa">Is This Helpful?</label>
                         <button onclick="helpfulagree(`aa34rfdsefdsa`)" class="helpful-button helpful-agree helpful-option aa34rfdsefdsa" data-id="">Yes</button>
                         <button onclick="helpfuldisagree(`aa34rfdsefdsa`)"class="helpful-button helpful-disagree helpful-option aa34rfdsefdsa" data-id="">No</button>

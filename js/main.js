@@ -5,6 +5,59 @@ function customize(item, previousPage) {
 }
 
 function customizepageloaded() {
+
+    // Load Reviews
+
+    const review = {"username":"WillyJackie","rating":"3","content":"YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP", "helpful_amount":"73"}
+
+    
+
+    // Load Rating
+    
+    const stars_div = document.getElementById("stars")
+
+    const total_reviews = Number(stars_div.dataset.totalreviews)
+
+    const avg_rating = Math.round(Number(stars_div.dataset.totalstars) / total_reviews)
+
+    document.getElementById("total-reviews").innerHTML = `(${total_reviews})`
+
+    for (i = 1; i <= 5; i++) {
+        if (i <= avg_rating) {
+            const filled_star = document.createElement("img")
+            filled_star.src = "svg/filled-star.svg"
+            stars_div.appendChild(filled_star)
+        } else {
+            const star = document.createElement("img")
+            star.src = "svg/star.svg"
+            stars_div.appendChild(star)
+        }
+    }
+}
+
+// Called when the option changes
+
+function optionchanged() {
+    
+    const cpu_price = Number(JSON.parse(document.getElementById("cpu").value).price)
+    const gpu_price = Number(JSON.parse(document.getElementById("gpu").value).price)
+    const ram_price = Number(JSON.parse(document.getElementById("ram").value).price)
+    const storage_price = Number(JSON.parse(document.getElementById("storage").value).price)
+    const monitor_price = Number(JSON.parse(document.getElementById("monitor").value).price)
+    const peripherals_price = Number(JSON.parse(document.getElementById("peripherals").value).price)
+    const osver_price = Number(JSON.parse(document.getElementById("osver").value).price)
+
+    const current_total = cpu_price + gpu_price + ram_price + storage_price + monitor_price + peripherals_price + osver_price
+    const points = Math.round(current_total / 3)
+
+    const total_text = document.getElementById("total-text")
+    const points_text = document.getElementById("points-text")
+
+    total_text.dataset.total = current_total
+    points_text.dataset.points = points
+
+    total_text = addcommasinnumber(current_total)
+    points_text.innerHTML = `You will earn: ${points} Points`
 }
 
 function addtocart() {
@@ -18,13 +71,13 @@ function addtocart() {
     // Get item info
 
     const item_name = document.getElementById("itemname").dataset.name
-    const cpu_choice = document.getElementById("cpu").dataset.option
-    const gpu_choice = document.getElementById("gpu").dataset.option
-    const ram_choice = document.getElementById("ram").dataset.option
-    const storage_choice = document.getElementById("storage").dataset.option
-    const monitor_choice = document.getElementById("monitor").dataset.option
-    const peripherals_choice = document.getElementById("peripherals").dataset.option
-    const osver_choice = document.getElementById("osver").dataset.option
+    const cpu_choice = JSON.parse(document.getElementById("cpu").value).item
+    const gpu_choice = JSON.parse(document.getElementById("gpu").value).item
+    const ram_choice = JSON.parse(document.getElementById("ram").value).item
+    const storage_choice = JSON.parse(document.getElementById("storage").value).item
+    const monitor_choice = JSON.parse(document.getElementById("monitor").value).item
+    const peripherals_choice = JSON.parse(document.getElementById("peripherals").value).item
+    const osver_choice = JSON.parse(document.getElementById("osver").value).item
 
     // Get Total & Points
 
@@ -48,15 +101,15 @@ function addtocart() {
     item_bought_align.classList.add("cardshow")
 }
 
-function helpfulagree(review_id) {
-    helpfulchange(review_id)
+function helpfulagree(review_id,) {
+    helpfulchange(review_id, true)
 }
 
 function helpfuldisagree(review_id) {
-    helpfulchange(review_id)
+    helpfulchange(review_id, false)
 }
 
-function helpfulchange(review_id) {
+function helpfulchange(review_id, helpful) {
     const reviewelements = document.getElementsByClassName(review_id)
     for (var i = 0; i < reviewelements.length; i++) {
         var element = reviewelements.item(i)
@@ -64,6 +117,9 @@ function helpfulchange(review_id) {
             element.style.display = "none"
         } else if (element.classList.contains("helpful-text")) {
             element.innerHTML = "Thank You for your feedback"
+        } else if (element.classList.contains("helpful-amount") && helpful) {
+            element.dataset.amount++
+            element.innerHTML = `${element.dataset.amount} Found This Helpful.`
         }
     }
 }
@@ -194,13 +250,13 @@ function gettotal() {
         // Monitor Choice
 
         const monitor_choice = document.createElement("h4")
-        monitor_choice.innerHTML = `GPU: ${item.monitor}`
+        monitor_choice.innerHTML = `Monitor: ${item.monitor}`
         item_specs_bg.appendChild(monitor_choice)
                         
         // Peripherals Choice
 
         const peripherals_choice = document.createElement("h4")
-        peripherals_choice.innerHTML = `GPU: ${item.peripherals}`
+        peripherals_choice.innerHTML = `Peripherals: ${item.peripherals}`
         item_specs_bg.appendChild(peripherals_choice)
 
         // Remove Button
@@ -383,6 +439,9 @@ function guidGenerator() {
     return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
 
+// Point option selected
+
+if (document.getElementById("point-option")) {
 document.getElementById("point-option").addEventListener("change", function() {
     const Payable_Amount_Display = document.getElementById("amount-payable")
     const Point_Option = document.getElementById("point-option")
@@ -401,4 +460,4 @@ document.getElementById("point-option").addEventListener("change", function() {
 
         Total_Display.innerHTML = Payable_Amount_String
     }
-})
+})}
