@@ -8,10 +8,8 @@ function customizepageloaded() {
 
     // Load Reviews
 
-    const review = {"username":"WillyJackie","rating":"3","content":"YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP YAP", "helpful_amount":"73"}
-
+    loadreviews()
     
-
     // Load Rating
     
     const stars_div = document.getElementById("stars")
@@ -22,17 +20,143 @@ function customizepageloaded() {
 
     document.getElementById("total-reviews").innerHTML = `(${total_reviews})`
 
+    loadrating(avg_rating, stars_div)
+}
+
+// Load Rating
+
+function loadrating(rating, parentNode) {
     for (i = 1; i <= 5; i++) {
-        if (i <= avg_rating) {
+        if (i <= rating) {
             const filled_star = document.createElement("img")
             filled_star.src = "svg/filled-star.svg"
-            stars_div.appendChild(filled_star)
+            parentNode.appendChild(filled_star)
         } else {
             const star = document.createElement("img")
             star.src = "svg/star.svg"
-            stars_div.appendChild(star)
+            parentNode.appendChild(star)
         }
     }
+}
+
+function loadreviews() {
+
+    const reviews_list = document.getElementById("reviews")
+
+    // Test Sample
+
+    const reviews = [
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+        {"id":`${guidGenerator()}`,"username":"SaucyJack","rating":"3","review":"Kudbebedda","helpful":"73"},
+        {"id":`${guidGenerator()}`,"username":"AEEEEEE","rating":"5","review":"Massive W","helpful":"23"},
+        {"id":`${guidGenerator()}`,"username":"Walter White","rating":"1","review":"Absolute Dogwater","helpful":"0"},
+    ]
+
+    const reviews_displayed = Number(reviews_list.dataset.showing)
+
+    var new_reviews_displayed = Number(reviews_list.dataset.showing)
+
+    document.getElementById("load-more").remove()
+
+    for (var i = 0; (reviews.length - reviews_displayed >= 5 ? i < 5 : i < reviews.length - reviews_displayed); i++) {
+
+        const review = reviews[reviews_displayed + i]
+
+        // Create Review Element
+
+        const review_bg = document.createElement("div")
+        review_bg.classList.add("review", "ubuntu-medium")
+        reviews_list.appendChild(review_bg)
+
+        const content_div = document.createElement("div")
+        content_div.classList.add("review-content")
+        review_bg.appendChild(content_div)
+
+        const profile_img = document.createElement("img")
+        profile_img.src = "img/placeholder.jpeg" //Get Profile Pic From account database later
+        content_div.appendChild(profile_img)
+        
+        const content_div_no_pic = document.createElement("div")
+        content_div.appendChild(content_div_no_pic)
+
+        const username = document.createElement("h5")
+        username.classList.add("username")
+        username.innerHTML = review.username
+        content_div_no_pic.appendChild(username)
+
+        const rating_bg = document.createElement("div")
+        rating_bg.classList.add("review-rating")
+        content_div_no_pic.appendChild(rating_bg)
+
+        loadrating(Number(review.rating), rating_bg)
+
+        const review_content = document.createElement("h5")
+        review_content.innerHTML = review.review
+        content_div_no_pic.appendChild(review_content)
+
+        const button_align = document.createElement("div")
+        button_align.classList.add("button-align")
+        review_bg.appendChild(button_align)
+
+        const helpful_amount_text = document.createElement("label")
+        helpful_amount_text.classList.add("helpful-amount", `${review.id}`)
+        helpful_amount_text.innerHTML = `${review.helpful} Found This Helpful.`
+        helpful_amount_text.dataset.amount = review.helpful
+        button_align.appendChild(helpful_amount_text)
+
+        const question_text = document.createElement("label")
+        question_text.classList.add("helpful-text", `${review.id}`)
+        question_text.innerHTML = "Is This Helpful?"
+        button_align.appendChild(question_text)
+
+        const agree_button = document.createElement("button")
+        agree_button.classList.add("helpful-button", "helpful-agree", "helpful-option", `${review.id}`)
+        agree_button.innerHTML = "Yes"
+        agree_button.onclick = function() {helpfulagree(review.id)}
+        button_align.appendChild(agree_button)
+
+        const disagree_button = document.createElement("button")
+        disagree_button.classList.add("helpful-button", "helpful-disagree", "helpful-option", `${review.id}`)
+        disagree_button.innerHTML = "No"
+        disagree_button.onclick = function() {helpfuldisagree(review.id)}
+        button_align.appendChild(disagree_button)
+
+        new_reviews_displayed++
+    }
+
+    if (new_reviews_displayed % 5 == 0) {
+        const load_more_button_bg = document.createElement("div")
+        load_more_button_bg.id = "load-more"
+        reviews_list.appendChild(load_more_button_bg)
+
+        const load_more_button = document.createElement("button")
+        load_more_button.id = "load-more-button"
+        load_more_button.innerHTML = "Load More"
+        load_more_button.onclick = function() {loadreviews()}
+        load_more_button_bg.appendChild(load_more_button)
+    }
+
+    reviews_list.dataset.showing = new_reviews_displayed    
 }
 
 // Called when the option changes
@@ -56,7 +180,7 @@ function optionchanged() {
     total_text.dataset.total = current_total
     points_text.dataset.points = points
 
-    total_text = addcommasinnumber(current_total)
+    total_text.innerHTML = addcommasinnumber(current_total)
     points_text.innerHTML = `You will earn: ${points} Points`
 }
 
@@ -114,7 +238,8 @@ function helpfulchange(review_id, helpful) {
     for (var i = 0; i < reviewelements.length; i++) {
         var element = reviewelements.item(i)
         if (element.classList.contains("helpful-button")) {
-            element.style.display = "none"
+            element.remove()
+            i--
         } else if (element.classList.contains("helpful-text")) {
             element.innerHTML = "Thank You for your feedback"
         } else if (element.classList.contains("helpful-amount") && helpful) {
@@ -368,7 +493,7 @@ function gettotal() {
 
     // Amount Payable
 
-    const To_Pay = total + parseFloat(GST)
+    const To_Pay = (total + parseFloat(GST)).toFixed(2)
 
     const To_Pay_String = addcommasinnumber(To_Pay)
 
@@ -425,7 +550,7 @@ function addcommasinnumber(value) {
 
         if ((placement - first_set_amount)% 3 == 0 && placement != value.toString().length && value.toString()[placement] != ".") {
             value_string += ","
-        }
+        } 
     }
 
     return value_string

@@ -407,7 +407,7 @@ footer > div {
 
 #reviews {
     width: 80vi;
-    height: 600px;
+    min-height: 600px;
 }
 
 #reviewheader {
@@ -471,6 +471,18 @@ footer > div {
     margin-right: 10px;
 }
 
+#load-more {
+    display: flex; 
+    justify-content: center; 
+    margin: 20px 0px
+}
+
+#load-more-button {
+    padding: 10px;
+    border-style: none; 
+    background-color: #2a8fe2;
+    border-radius: 10px;
+}
 
 /* Item Bought */
 .cardshow {
