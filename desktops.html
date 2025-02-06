@@ -12,24 +12,145 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
+<style>
+    #product-header {
+        display: flex; 
+        justify-content: center; 
+        margin: 40px 0px;
+    }
+    
+    #align-bg {
+        display: flex; 
+        justify-content: center;
+    }
+
+    #tabs-filter {
+        display:flex; 
+        flex-direction: column ;
+        width: 250px;
+    }
+
+    .tab {
+        display:flex; 
+        justify-content:center; 
+        align-items:center;
+        width: 100%; 
+        height: 60px;
+    }
+
+    .active-tab {
+        background-color: lightgray;
+    }
+
+    #filter {
+        height: 60%; 
+        padding: 5px 20px;
+    }
+
+    .price-input {
+        width: 90px;
+    }
+
+    .filter-header {
+        margin-top: 20px;
+    }
+
+    .filter-selection, .filter-select {
+        margin-left: 10px;
+    }
+    
+    .filter-select {
+        width: 120px;
+    }
+    
+    #filter-apply {
+        width: 80px;
+        border-width: 1px;
+    }
+    
+    #selection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        width: 800px; 
+        min-height: 1000px; 
+        background-color: lightgray;
+    }
+</style>
+
 <body>
     <div id="navbarspacing"></div>
 
     <main>
 
-        <div id="item-banner">
-            <img>
-            <h1 class="ubuntu-bold">Desktops</h1>
-            <img>
+        <div id="product-header" class="ubuntu-bold">
+            <h1>Desktops</h1>
         </div>
 
-        <div class="options-title-bg">
-            <h1 class="options-title ubuntu-bold" style="margin-top: 0px;">Performant Budgets</h1>
-        </div>
+        <div id="align-bg">
+            <div id="tabs-filter">
+                <div id="tabs" style="height: 50%;">
+                    <div class="tab active-tab"><h3>Tab 1</h3></div>
+                    <div class="tab"><h3>Tab 2</h3></div>
+                    <div class="tab"><h3>Tab 3</h3></div>
+                    <div class="tab"><h3>Tab 4</h3></div>
+                </div>
 
-        <div class="options-layout-bg">
-            <div class="options-layout">
+                <div id="filter">
+                    <h4>Base Price Range</h4>
+                    <input class="price-input" id="min-price"placeholder="S$"> -- <input class="price-input" id="max-price" placeholder="S$"><br>
+                    
+                    <h4 class="filter-header">Part Brands</h4>
+                    <input class="filter-selection" type="checkbox" name="Nvidia" id="Nvidia">
+                    <label for="Nvidia">Nvidia</label><br>
+                    <input class="filter-selection" type="checkbox" name="Intel" id="Intel">
+                    <label for="Intel">Intel</label><br>
+                    <input class="filter-selection" type="checkbox" name="AMD" id="AMD">
+                    <label for="AMD">AMD</label><br>
 
+                    <h5 class="filter-header">Min Parts Specification</h5>
+                    <label class="filter-selection" for="cpu-filter">CPU:</label><br>
+                    <select class="filter-select" name="cpu-filter" id="cpu-filter">
+                        <option>All</option>
+                        <option class="intel" value="i5 14600F">i5 14600F</option>
+                        <option class="intel" value="i7 14700KF">i7 14700KF</option>
+                        <option class="intel" value="i9 14900KF">i9 14900KF</option>
+                        <option class="intel" value="Core Ultra 7 265KF">Core Ultra 7 265KF</option>
+                        <option class="intel" value="Core Ultra 9 285K">Core Ultra 9 285K</option>
+                        <option class="amd" value="Ryzen 7 7600X3D">Ryzen 7 7600X3D</option>
+                        <option class="amd" value="Ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
+                        <option class="amd" value="Ryzen 7 7900X">Ryzen 7 7900X</option>
+                        <option class="amd" value="Ryzen 7 7950X3D">Ryzen 7 7950X3D</option>
+                    </select><br>
+                    <label class="filter-selection" for="gpu-filter">GPU:</label><br>
+                    <select class="filter-select" name="gpu-filter" id="gpu-filter">
+                        <option>All</option>
+                        <option class="nvidia" value="RTX 4060">RTX 4060</option>
+                        <option class="nvidia" value="RTX 5070">RTX 5070</option>
+                        <option class="nvidia" value="RTX 5080">RTX 5080</option>
+                        <option class="nvidia" value="RTX 5090">RTX 5090</option>
+                        <option class="amd" value="7600 XT">7600 XT</option>
+                        <option class="amd" value="7800 XT">7800 XT</option>
+                        <option class="amd" value="7900 XTX">7900 XTX</option>
+                    </select><br>
+                    <label class="filter-selection" for="ram-filter">RAM:</label><br>
+                    <select class="filter-select" name="ram-filter" id="ram-filter">
+                        <option>All</option>
+                        <option value="16GB">16GB</option>
+                        <option value="32GB">32GB</option>
+                        <option value="64GB">64GB</option>
+                    </select><br>
+                    <label class="filter-selection" for="storage-filter">Storage:</label><br>
+                    <select class="filter-select" name="storage-filter" id="storage-filter">
+                        <option>All</option>
+                        <option value="512GB">512GB</option>
+                        <option value="1TB">1TB</option>
+                        <option value="2TB">2TB</option>
+                    </select><br><br>
+                    <button class="filter-selection" id="filter-apply">Apply</button>
+                </div>
+            </div>
+            <div id="selection">
                 <!-- Item Template -->
                 <div class="item-option">
                     <img src="img/placeholder.jpeg">
@@ -51,18 +172,6 @@
                         </button></div>
                     </div>
                 </div>
-
-            </div>
-        </div> 
-
-        <div class="options-title-bg">
-            <h1 class="options-title ubuntu-bold">Extreme Performance</h1>
-        </div>
-
-        <div class="options-layout-bg">
-            <div class="options-layout">
-
-                <!-- Item Template -->
                 <div class="item-option">
                     <img src="img/placeholder.jpeg">
                     <div>
@@ -78,23 +187,11 @@
                         <div class="hidden">
                             <h1>S$5,999</h1>
                         </div>
-                        <div class="hidden"><button onclick="" class="customize ubuntu-bold" data-item="">
+                        <div class="hidden"><button onclick="customize(this.dataset.item, `desktops.html`)" class="customize ubuntu-bold" data-item="Cheese Power">
                             Customize Now
                         </button></div>
                     </div>
                 </div>
-
-            </div>
-        </div> 
-
-        <div class="options-title-bg">
-            <h1 class="options-title ubuntu-bold">Lightning Productivity</h1>
-        </div>
-
-        <div class="options-layout-bg">
-            <div class="options-layout">
-
-                <!-- Item Template -->
                 <div class="item-option">
                     <img src="img/placeholder.jpeg">
                     <div>
@@ -110,15 +207,14 @@
                         <div class="hidden">
                             <h1>S$5,999</h1>
                         </div>
-                        <div class="hidden"><button onclick="" class="customize ubuntu-bold" data-item="">
+                        <div class="hidden"><button onclick="customize(this.dataset.item, `desktops.html`)" class="customize ubuntu-bold" data-item="Cheese Power">
                             Customize Now
                         </button></div>
                     </div>
                 </div>
-
             </div>
-        </div> 
-        
+        </div>
+
     </main>
 
     <header id="navbar">

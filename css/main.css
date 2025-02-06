@@ -194,37 +194,71 @@ footer > div {
 }
 
 /* options */
-.options-layout-bg {
-    display: flex;
+#product-header {
+    display: flex; 
+    justify-content: center; 
+    margin: 40px 0px;
+}
+
+#align-bg {
+    display: flex; 
     justify-content: center;
-    margin: 10px 0px 10px 0px;
-    background-color: #7f7f7f;
-    width: 100%;
-    min-height: 350px;
-    
 }
 
-.options-layout {
+#tabs-filter {
+    display:flex; 
+    flex-direction: column ;
+    width: 250px;
+}
+
+.tab {
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    width: 100%; 
+    height: 60px;
+}
+
+.active-tab {
+    background-color: lightgray;
+}
+
+#filter {
+    height: 60%; 
+    padding: 5px 20px;
+}
+
+.price-input {
+    width: 90px;
+}
+
+.filter-header {
+    margin-top: 20px;
+}
+
+.filter-selection, .filter-select {
+    margin-left: 10px;
+}
+
+.filter-select {
+    width: 120px;
+}
+
+#filter-apply {
+    width: 80px;
+    border-width: 1px;
+}
+
+#selection {
     display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    width: 100%;
-    min-height: 350px;
-    gap: 10px;
-    
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 800px; 
+    min-height: 1000px; 
+    background-color: lightgray;
 }
 
-.options-title-bg {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.options-title {
-    padding: 0px 10px;
-    width: 100%;
-    margin-top: 10px;
-}
+/* Item Template in Desktops/Laptops/PC Parts */
 
 .item-option {
     transition: .5s;
@@ -233,6 +267,7 @@ footer > div {
     width: 350px;
     background-color: orange;
     overflow: hidden;
+    margin: 25px;
 }
 
 .item-option > img  {
