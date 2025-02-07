@@ -109,8 +109,12 @@
             <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
             <a href="laptops.html"><li class="navbar-button">Laptops</li></a>
             <a href="parts.html"><li class="navbar-button">PC Parts</li></a>
-            <a href="login.html"><li id="navbar-login">Login</li></a>
+            <button id="navbar-login" class="ubuntu-bold" onclick="tologin(`index.html`)">Login</button>
         </ul>
+        <div id="account-info" class="hidden-focus">
+          <div id="account-points" class="ubuntu-medium">Points: 0</div>
+          <button id="account-log-out" class="ubuntu-medium" onclick="logout()">Log Out</button>
+        </div>
       </navbar>
     </header>
 
@@ -125,3 +129,4 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>

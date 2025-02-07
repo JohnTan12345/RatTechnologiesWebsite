@@ -76,7 +76,15 @@ const items_for_sale =
         }
     ]}
 
-function loadproducts(tab, page) {
+    const users = [
+        {"username":"jimbob", "password":"abcdefg", "points":"60"},
+        {"username":"jeremy", "password":"1234567", "points":"90"},
+        {"username":"aelo", "password":"abc123", "points":"90"},
+        {"username":"greg", "password":"greg", "points":"40"},
+        {"username":"waltah", "password":"fixinggood", "points":"90"},
+    ]
+
+function loadproducts(tab, page, filter) {
 
     const catagory = items_for_sale[tab]
     const selection_div = document.getElementById("selection")
@@ -142,12 +150,110 @@ function loadproducts(tab, page) {
         const customize_button = document.createElement("button")
         customize_button.classList.add("customize", "ubuntu-bold")
         customize_button.innerHTML = "Customize Now"
-        customize_button.onclick = function() {customize(item, page.toString())}
+        customize_button.onclick = function() {customize(item, page)}
         customize_button_div.appendChild(customize_button)
 
     }
 
 }
+
+function switchmode(next_mode) {
+    var from
+    var to
+
+    const error_text = document.getElementById("error")
+
+    if (!error_text.classList.contains("hidden-focus")) {
+        error_text.classList.add("hidden-focus")
+    }
+    if (next_mode == "create") {
+        from = document.getElementsByClassName("login")
+        to = document.getElementsByClassName("create")
+    } else {
+        from = document.getElementsByClassName("create")
+        to = document.getElementsByClassName("login")
+    }
+
+    // Hide from group
+    for (var i = 0; i < from.length; i++) {
+        const element = from[i]
+        element.classList.add("hidden-focus")
+    }
+
+    // Show to group
+    for (var i = 0; i < to.length; i++) {
+        const element = to[i]
+        element.classList.remove("hidden-focus")
+    }
+}
+
+function filterapply() {
+    alert("apply filter")
+}
+
+function loginaccount() {
+
+    const error_text = document.getElementById("error")
+
+    const entered_username = document.getElementById("username").value
+    const entered_password = document.getElementById("password").value
+    users.forEach(user_info => {
+       if (entered_username == user_info.username) {
+        if (entered_password == user_info.password) {
+
+            const prev_page = localStorage.getItem("previous")
+            localStorage.setItem("login data", JSON.stringify(user_info))
+            window.location.href = prev_page
+
+        } else {
+            error_text.innerHTML = "Password is incorrect"
+            error_text.classList.remove("hidden-focus")
+            }
+
+       } else {
+        error_text.innerHTML = "Username not found"
+        error_text.classList.remove("hidden-focus")
+       }
+    });
+}
+
+function tologin(previousPage) {
+    localStorage.setItem("previous", previousPage)
+    window.location.href = "login.html"
+}
+
+// Loads or unloads account info and log out button
+
+function accountinfo() {
+    const account_info_div = document.getElementById("account-info")
+    if (account_info_div.classList.contains("hidden-focus")) {
+        account_info_div.classList.remove("hidden-focus")
+    } else {
+        account_info_div.classList.add ("hidden-focus")
+    }
+}
+
+// Checks if user is logged in
+
+function checklogin() {
+    const login_data = localStorage.getItem("login data")
+    const login_button = document.getElementById("navbar-login")
+    if (login_data != undefined) {
+        const login_data_JSON = JSON.parse(login_data)
+        login_button.innerHTML = login_data_JSON.username
+        document.getElementById("account-points").innerHTML = `Points: ${login_data_JSON.points}`
+        login_button.onclick = function() {accountinfo()}
+    }
+}
+
+// Logs out
+
+function logout() {
+    localStorage.removeItem("login data")
+    window.location.reload()
+}
+
+// Switches Catagories
 
 function switchtab(element) {
     if (element.classList.contains("active-div")) {
@@ -161,7 +267,7 @@ function switchtab(element) {
 }
 
 function customize(item, previousPage) {
-    localStorage.setItem("item", item)
+    localStorage.setItem("item", JSON.stringify(item))
     localStorage.setItem("previous", previousPage)
     window.location.href = "customize.html"
 }
@@ -748,3 +854,5 @@ document.getElementById("point-option").addEventListener("change", function() {
         Total_Display.innerHTML = Payable_Amount_String
     }
 })}
+
+document.getElementById("navbar-login").onload = checklogin()

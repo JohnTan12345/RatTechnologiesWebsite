@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body onload="loadproducts(`budget`)">
+<body onload="loadproducts(`budget`, `desktops.html`)">
     <div id="navbarspacing"></div>
-
+        
     <main>
 
         <div id="product-header" class="ubuntu-bold">
@@ -81,7 +81,7 @@
                         <option value="1TB">1TB</option>
                         <option value="2TB">2TB</option>
                     </select><br><br>
-                    <button class="filter-selection" id="filter-apply">Apply</button>
+                    <button class="filter-selection" id="filter-apply" onclick="filterapply()">Apply</button>
                 </div>
             </div>
             <div id="selection" class="ubuntu-medium">
@@ -97,8 +97,12 @@
               <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
               <a href="laptops.html"><li class="navbar-button">Laptops</li></a>
               <a href="parts.html"><li class="navbar-button">PC Parts</li></a>
-              <a href="login.html"><li id="navbar-login">Login</li></a>
+              <button id="navbar-login" class="ubuntu-bold"onclick="tologin(`desktops.html`)">Login</button>
           </ul>
+          <div id="account-info" class="hidden-focus">
+            <div id="account-points" class="ubuntu-medium">Points: 0</div>
+            <button id="account-log-out" class="ubuntu-medium" onclick="logout()">Log Out</button>
+          </div>
         </navbar>
       </header>
 
