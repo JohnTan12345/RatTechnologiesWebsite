@@ -1,3 +1,165 @@
+// Test Bench
+
+const items_for_sale = 
+    {"budget": [
+
+        {"name":"Cheese Power",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"1400"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                }        
+        },
+
+        {"name":"Rat Rattling",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"7600 XT",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"7600 XT", "price":"500"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D", "price":"550"}],
+                    "gpu":[{"name":"7800 XT", "price":"700"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                }
+        },
+
+        {"name":"Blue Grinder",
+            "base display": 
+                {
+                    "cpu":"14600F",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"i5 14600F", "price":"325"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":["i7 14700KF, Core Ultra 7 265KF"],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                }   
+        }
+    ]}
+
+function loadproducts(tab, page) {
+
+    const catagory = items_for_sale[tab]
+    const selection_div = document.getElementById("selection")
+
+    for (var i = 0; i < catagory.length; i++) {
+
+        const item = catagory[i]
+        
+        // Create item option
+
+        const item_option_bg = document.createElement("div")
+        item_option_bg.classList.add("item-option")
+        selection_div.appendChild(item_option_bg)
+
+        const item_img = document.createElement("img")
+        item_img.src = `img/${item.name}.jpeg`
+        item_option_bg.appendChild(item_img)
+
+        const info_div = document.createElement("div")
+        item_option_bg.appendChild(info_div)
+
+        const item_name = document.createElement("h3")
+        item_name.innerHTML = item.name
+        info_div.appendChild(item_name)
+
+        const spec_div_1 = document.createElement("div")
+        info_div.appendChild(spec_div_1)
+
+        const cpu_spec = document.createElement("h5")
+        cpu_spec.innerHTML = `CPU: ${item["base display"].cpu}`
+        spec_div_1.appendChild(cpu_spec)
+
+        const gpu_spec = document.createElement("h5")
+        gpu_spec.innerHTML = `GPU: ${item["base display"].gpu}`
+        spec_div_1.appendChild(gpu_spec)
+
+        const spec_div_2 = document.createElement("div")
+        spec_div_2.classList.add("hidden")
+        info_div.appendChild(spec_div_2)
+
+        const ram_spec = document.createElement("h5")
+        ram_spec.innerHTML = `RAM: ${item["base display"].ram}`
+        spec_div_2.appendChild(ram_spec)
+
+        const storage_spec = document.createElement("h5")
+        storage_spec.innerHTML = `Storage: ${item["base display"].storage}`
+        spec_div_2.appendChild(storage_spec)
+
+        const price_div = document.createElement("div")
+        price_div.classList.add("hidden")
+        info_div.appendChild(price_div)
+
+        const base_total = Number(item.base.cpu.price) + Number(item.base.gpu.price) + Number(item.base.ram.price) + Number(item.base.storage.price)
+
+        const price_text = document.createElement("h1")
+        price_text.innerHTML = addcommasinnumber(base_total)
+        price_div.appendChild(price_text)
+
+        const customize_button_div = document.createElement("div")
+        customize_button_div.classList.add("hidden")
+        info_div.appendChild(customize_button_div)
+
+        const customize_button = document.createElement("button")
+        customize_button.classList.add("customize", "ubuntu-bold")
+        customize_button.innerHTML = "Customize Now"
+        customize_button.onclick = function() {customize(item, page.toString())}
+        customize_button_div.appendChild(customize_button)
+
+    }
+
+}
+
+function switchtab(element) {
+    if (element.classList.contains("active-div")) {
+        return
+    } else {
+        const active_tab = document.getElementsByClassName("active-tab")
+        active_tab[0].classList.remove("active-tab")
+
+        element.classList.add("active-tab")
+    }
+}
+
 function customize(item, previousPage) {
     localStorage.setItem("item", item)
     localStorage.setItem("previous", previousPage)

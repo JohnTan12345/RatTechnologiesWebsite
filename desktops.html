@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body>
+<body onload="loadproducts(`budget`)">
     <div id="navbarspacing"></div>
 
     <main>
@@ -24,10 +24,10 @@
         <div id="align-bg">
             <div id="tabs-filter">
                 <div id="tabs" style="height: 50%;">
-                    <div class="tab active-tab"><h3>Tab 1</h3></div>
-                    <div class="tab"><h3>Tab 2</h3></div>
-                    <div class="tab"><h3>Tab 3</h3></div>
-                    <div class="tab"><h3>Tab 4</h3></div>
+                    <button onclick="switchtab(this)" class="tab active-tab" id="budget"><h3>Budget</h3></button>
+                    <button onclick="switchtab(this)" class="tab" id="performance"><h3>Performance</h3></button>
+                    <button onclick="switchtab(this)" class="tab" id="productivity"><h3>Productivity</h3></button>
+                    <button onclick="switchtab(this)" class="tab" id="rgb galore"><h3>RGB Galore</h3></button>
                 </div>
 
                 <div id="filter">
@@ -53,8 +53,8 @@
                         <option class="intel" value="Core Ultra 9 285K">Core Ultra 9 285K</option>
                         <option class="amd" value="Ryzen 7 7600X3D">Ryzen 7 7600X3D</option>
                         <option class="amd" value="Ryzen 7 7800X3D">Ryzen 7 7800X3D</option>
-                        <option class="amd" value="Ryzen 7 7900X">Ryzen 7 7900X</option>
-                        <option class="amd" value="Ryzen 7 7950X3D">Ryzen 7 7950X3D</option>
+                        <option class="amd" value="Ryzen 9 7900X">Ryzen 7 7900X</option>
+                        <option class="amd" value="Ryzen 9 7950X3D">Ryzen 7 7950X3D</option>
                     </select><br>
                     <label class="filter-selection" for="gpu-filter">GPU:</label><br>
                     <select class="filter-select" name="gpu-filter" id="gpu-filter">
@@ -84,68 +84,7 @@
                     <button class="filter-selection" id="filter-apply">Apply</button>
                 </div>
             </div>
-            <div id="selection">
-                <!-- Item Template -->
-                <div class="item-option">
-                    <img src="img/placeholder.jpeg">
-                    <div>
-                        <h3>Cheese Power</h3>
-                        <div>
-                            <h5>CPU: 9950X3D</h5>
-                            <h5>GPU: RTX 5090</h5>
-                        </div>
-                        <div class="hidden">
-                            <h5>RAM: 64GB</h5>
-                            <h5>Storage: 4TB</h5>
-                        </div>
-                        <div class="hidden">
-                            <h1>S$5,999</h1>
-                        </div>
-                        <div class="hidden"><button onclick="customize(this.dataset.item, `desktops.html`)" class="customize ubuntu-bold" data-item="Cheese Power">
-                            Customize Now
-                        </button></div>
-                    </div>
-                </div>
-                <div class="item-option">
-                    <img src="img/placeholder.jpeg">
-                    <div>
-                        <h3>Cheese Power</h3>
-                        <div>
-                            <h5>CPU: 9950X3D</h5>
-                            <h5>GPU: RTX 5090</h5>
-                        </div>
-                        <div class="hidden">
-                            <h5>RAM: 64GB</h5>
-                            <h5>Storage: 4TB</h5>
-                        </div>
-                        <div class="hidden">
-                            <h1>S$5,999</h1>
-                        </div>
-                        <div class="hidden"><button onclick="customize(this.dataset.item, `desktops.html`)" class="customize ubuntu-bold" data-item="Cheese Power">
-                            Customize Now
-                        </button></div>
-                    </div>
-                </div>
-                <div class="item-option">
-                    <img src="img/placeholder.jpeg">
-                    <div>
-                        <h3>Cheese Power</h3>
-                        <div>
-                            <h5>CPU: 9950X3D</h5>
-                            <h5>GPU: RTX 5090</h5>
-                        </div>
-                        <div class="hidden">
-                            <h5>RAM: 64GB</h5>
-                            <h5>Storage: 4TB</h5>
-                        </div>
-                        <div class="hidden">
-                            <h1>S$5,999</h1>
-                        </div>
-                        <div class="hidden"><button onclick="customize(this.dataset.item, `desktops.html`)" class="customize ubuntu-bold" data-item="Cheese Power">
-                            Customize Now
-                        </button></div>
-                    </div>
-                </div>
+            <div id="selection" class="ubuntu-medium">
             </div>
         </div>
 
