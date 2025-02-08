@@ -116,7 +116,7 @@ a {
     border-radius: 10px;
     background-color: orange;
 }
-#error {
+#login-error, #create-error {
     color: red;
 }
 

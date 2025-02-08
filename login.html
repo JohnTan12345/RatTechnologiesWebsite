@@ -26,7 +26,7 @@
                 <input id="username" name="username" placeholder="username" class="login">
                 <input id="password" name="password" placeholder="password" class="login">
                 <button id="login-account" onclick="loginaccount()" class="login">Login</button>
-                <p id="error" class="hidden-focus"></p>
+                <p id="login-error" class="hidden-focus"></p>
                 <button onclick="switchmode(`create`)" id="create-account-button" class="login">No Account? Create one</button>
 
                 <!-- Create Account -->
@@ -35,6 +35,7 @@
                 <input id="new-username" name="new-username" placeholder="username" class="create hidden-focus">
                 <input id="new-password" name="new-password" placeholder="password" class="create hidden-focus">
                 <button id="create-account" onclick="createaccount()" class="create hidden-focus">Create Account</button>
+                <p id="create-error" class="hidden-focus"></p>
                 <button onclick="switchmode(`login`)" id="login-account-button" class="create hidden-focus">Have an account? Login</button>
                 
 
@@ -69,3 +70,4 @@
 </body>
 
 <script src="js/main.js"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>

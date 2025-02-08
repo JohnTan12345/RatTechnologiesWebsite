@@ -68,21 +68,89 @@ const items_for_sale =
                 },
                 "options":
                 {
-                    "cpu":["i7 14700KF, Core Ultra 7 265KF"],
+                    "cpu":[{"name":"i7 14700KF", "price":"575"}, {"name":"Core Ultra 7 265KF", "price":"590"}],
                     "gpu":[{"name":"RTX 5070", "price":"600"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
                 }   
-        }
-    ]}
+        },
+        
+    ], 
+"performance": [
 
-    const users = [
-        {"username":"jimbob", "password":"abcdefg", "points":"60"},
-        {"username":"jeremy", "password":"1234567", "points":"90"},
-        {"username":"aelo", "password":"abc123", "points":"90"},
-        {"username":"greg", "password":"greg", "points":"40"},
-        {"username":"waltah", "password":"fixinggood", "points":"90"},
-    ]
+        {"name":"Cheese Racer",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"1400"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                }        
+        },
+
+        {"name":"Rat Speeder",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"7600 XT",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"7600 XT", "price":"500"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D", "price":"550"}],
+                    "gpu":[{"name":"7800 XT", "price":"700"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                }
+        },
+
+        {"name":"Blue Grinder",
+            "base display": 
+                {
+                    "cpu":"14600F",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"i5 14600F", "price":"325"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"i7 14700KF", "price":"575"}, {"name":"Core Ultra 7 265KF", "price":"590"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                }   
+        },
+        
+    ]}
 
 function loadproducts(tab, page, filter) {
 
@@ -161,10 +229,12 @@ function switchmode(next_mode) {
     var from
     var to
 
-    const error_text = document.getElementById("error")
+    const login_error_text = document.getElementById("login-error")
+    const create_error_text = document.getElementById("create-error")
 
-    if (!error_text.classList.contains("hidden-focus")) {
-        error_text.classList.add("hidden-focus")
+    if (!login_error_text.classList.contains("hidden-focus") || !create_error_text.classList.contains("hidden-focus")) {
+        login_error_text.classList.add("hidden-focus")
+        create_error_text.classList.add("hidden-focus")
     }
     if (next_mode == "create") {
         from = document.getElementsByClassName("login")
@@ -191,30 +261,182 @@ function filterapply() {
     alert("apply filter")
 }
 
+
+
 function loginaccount() {
 
-    const error_text = document.getElementById("error")
+
+    const login_button = document.getElementById("login-account")
+
+
+    login_button.disabled = true
+    login_button.innerHTML = '<dotlottie-player src="https://lottie.host/8a0c36b9-eb34-425a-b8d9-44261e47e795/MxZsY2BrLb.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>'
+
+    const error_text = document.getElementById("login-error")
+
+    error_text.classList.add("hidden-focus")
 
     const entered_username = document.getElementById("username").value
     const entered_password = document.getElementById("password").value
-    users.forEach(user_info => {
-       if (entered_username == user_info.username) {
-        if (entered_password == user_info.password) {
+
+    // Check if username or password is entered
+
+    if (entered_username == "") {
+        error_text.innerHTML = "Please enter a username"
+    } else if (entered_password == "") {
+        error_text.innerHTML = "Please enter a password"
+    }
+
+    if (entered_username == "" || entered_password == "") {
+        error_text.classList.remove("hidden-focus")
+        login_button.disabled = false
+        login_button.innerHTML = "Login"
+        return
+    }
+
+    const APIKEY = "67a65abedf7c2681359657b8"
+
+    let settings = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY,
+          "Cache-Control": "no-cache"
+        },
+    } 
+
+    // Get Account Records
+
+    fetch("https://rattechnologies-dab8.restdb.io/rest/rat-technologies-accounts", settings)
+    .then(users => users.json())
+    .then(users => {
+
+        // Find if account exists
+
+        let username_found = false
+
+        users.forEach(user_info => {
+            if (entered_username == user_info.username) {
+                username_found = true
+             if (entered_password == user_info.password) {
+     
+                 const prev_page = localStorage.getItem("previous")
+                 localStorage.setItem("login data", JSON.stringify(user_info))
+                 window.location.href = prev_page
+     
+             } else {
+                 error_text.innerHTML = "Password is incorrect"
+                 error_text.classList.remove("hidden-focus")
+                
+                 }
+            }
+         });
+
+         if (username_found == false) {
+            error_text.innerHTML = "Username not found"
+            error_text.classList.remove("hidden-focus")
+        }
+
+        login_button.disabled = false
+        login_button.innerHTML = "Login"
+
+    })
+}
+
+function createaccount() {
+
+    const create_button = document.getElementById("create-account")
+
+    create_button.disabled = false
+    create_button.innerHTML = '<dotlottie-player src="https://lottie.host/8a0c36b9-eb34-425a-b8d9-44261e47e795/MxZsY2BrLb.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>'
+
+    const error_text = document.getElementById("create-error")
+
+    error_text.classList.add("hidden-focus")
+
+    const entered_username = document.getElementById("new-username").value
+    const entered_password = document.getElementById("new-password").value
+
+    if (entered_username == "") {
+        error_text.innerHTML = "Please enter a username"
+    } else if (entered_password == "") {
+        error_text.innerHTML = "Please enter a password"
+    }
+
+    if (entered_username == "" || entered_password == "") {
+        error_text.classList.remove("hidden-focus")
+        create_button.disabled = false
+        create_button.innerHTML = "Create Account"
+        return
+    }
+
+    const APIKEY = "67a65abedf7c2681359657b8"
+
+    let settings = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY,
+          "Cache-Control": "no-cache"
+        },
+    } 
+
+    // Get Account Records
+
+    fetch("https://rattechnologies-dab8.restdb.io/rest/rat-technologies-accounts", settings)
+    .then(users => users.json())
+    .then(users => {
+        
+        // Find if account exists
+
+        var username_found = false
+
+        users.forEach(user_info => {
+            if (entered_username == user_info.username) {
+                username_found = true
+            }
+        })
+
+
+        if (username_found) {
+            error_text.innerHTML = "Account already exists"
+            error_text.classList.remove("hidden-focus")
+
+            create_button.disabled = false
+            create_button.innerHTML = "Create Account"
+            return true
+    }
+    }).then(account_found => {
+
+        if (account_found) {
+            return
+        }
+
+        // If no records
+
+        const new_user = {"username":`${entered_username}`, "password":`${entered_password}`, "points":0}
+
+        settings = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "x-apikey": APIKEY,
+                "Cache-Control": "no-cache"
+            },
+            body: JSON.stringify(new_user),
+        }
+
+        fetch("https://rattechnologies-dab8.restdb.io/rest/rat-technologies-accounts", settings)
+        .then(response => response.json())
+        .then(response => {
 
             const prev_page = localStorage.getItem("previous")
-            localStorage.setItem("login data", JSON.stringify(user_info))
+            localStorage.setItem("login data", JSON.stringify(new_user))
             window.location.href = prev_page
 
-        } else {
-            error_text.innerHTML = "Password is incorrect"
-            error_text.classList.remove("hidden-focus")
-            }
+        })
+    })
 
-       } else {
-        error_text.innerHTML = "Username not found"
-        error_text.classList.remove("hidden-focus")
-       }
-    });
 }
 
 function tologin(previousPage) {
@@ -273,6 +495,83 @@ function customize(item, previousPage) {
 }
 
 function customizepageloaded() {
+
+    // Load Product
+
+    const product_item = JSON.parse(localStorage.getItem("item"))
+
+    const Product_Name_Display = document.getElementById("itemname")
+    Product_Name_Display.dataset.name = product_item.name
+    Product_Name_Display.innerHTML = product_item.name
+
+    const CPU_Options = document.getElementById("cpu")
+
+    const CPU_Base_Option = document.createElement("option")
+    CPU_Base_Option.value = JSON.stringify(product_item.base.cpu)
+    CPU_Base_Option.innerHTML = `${product_item.base.cpu.name} -- Base`
+    CPU_Options.appendChild(CPU_Base_Option)
+
+    for (var i = 0; i < Object.keys(product_item.options.cpu).length; i++) {
+        const option = product_item.options.cpu[i]
+
+        const CPU_Option = document.createElement("option")
+        CPU_Option.value = JSON.stringify(option)
+        CPU_Option.innerHTML = `${option.name} -- ${addcommasinnumber(Number(option.price) - Number(product_item.base.cpu.price))}`
+        CPU_Options.appendChild(CPU_Option)
+    }
+
+    const GPU_Options = document.getElementById("gpu")
+
+    const GPU_Base_Option = document.createElement("option")
+    GPU_Base_Option.value = JSON.stringify(product_item.base.gpu)
+    GPU_Base_Option.innerHTML = `${product_item.base.gpu.name} -- Base`
+    GPU_Options.appendChild(GPU_Base_Option)
+
+    for (var i = 0; i < Object.keys(product_item.options.gpu).length; i++) {
+        const option = product_item.options.gpu[i]
+
+        const GPU_Option = document.createElement("option")
+        GPU_Option.value = JSON.stringify(option)
+        GPU_Option.innerHTML = `${option.name} -- ${addcommasinnumber(Number(option.price) - Number(product_item.base.gpu.price))}`
+        GPU_Options.appendChild(GPU_Option)
+    }
+
+    const RAM_Options = document.getElementById("ram")
+
+    const RAM_Base_Option = document.createElement("option")
+    RAM_Base_Option.value = JSON.stringify(product_item.base.ram)
+    RAM_Base_Option.innerHTML = `${product_item.base.ram.name} -- Base`
+    RAM_Options.appendChild(RAM_Base_Option)
+
+    for (var i = 0; i < Object.keys(product_item.options.ram).length; i++) {
+        const option = product_item.options.ram[i]
+
+        const RAM_Option = document.createElement("option")
+        RAM_Option.value = JSON.stringify(option)
+        RAM_Option.innerHTML = `${option.name} -- ${addcommasinnumber(Number(option.price) - Number(product_item.base.ram.price))}`
+        RAM_Options.appendChild(RAM_Option)
+    }
+
+    const Storage_Options = document.getElementById("storage")
+
+    const Storage_Base_Option = document.createElement("option")
+    Storage_Base_Option.value = JSON.stringify(product_item.base.storage)
+    Storage_Base_Option.innerHTML = `${product_item.base.storage.name} -- Base`
+    Storage_Options.appendChild(Storage_Base_Option)
+
+    for (var i = 0; i < Object.keys(product_item.options.storage).length; i++) {
+        const option = product_item.options.storage[i]
+
+        const Storage_Option = document.createElement("option")
+        Storage_Option.value = JSON.stringify(option)
+        Storage_Option.innerHTML = `${option.name} -- ${addcommasinnumber(Number(option.price) - Number(product_item.base.storage.price))}`
+        Storage_Options.appendChild(Storage_Option)
+    }
+
+    const base_total = Number(product_item.base.cpu.price) + Number(product_item.base.gpu.price) + Number(product_item.base.ram.price) + Number(product_item.base.storage.price)
+
+    document.getElementById("total-text").dataset.total = base_total
+    document.getElementById("total-text").innerHTML = addcommasinnumber(base_total)
 
     // Load Reviews
 
@@ -463,13 +762,13 @@ function addtocart() {
     // Get item info
 
     const item_name = document.getElementById("itemname").dataset.name
-    const cpu_choice = JSON.parse(document.getElementById("cpu").value).item
-    const gpu_choice = JSON.parse(document.getElementById("gpu").value).item
-    const ram_choice = JSON.parse(document.getElementById("ram").value).item
-    const storage_choice = JSON.parse(document.getElementById("storage").value).item
-    const monitor_choice = JSON.parse(document.getElementById("monitor").value).item
-    const peripherals_choice = JSON.parse(document.getElementById("peripherals").value).item
-    const osver_choice = JSON.parse(document.getElementById("osver").value).item
+    const cpu_choice = JSON.parse(document.getElementById("cpu").value).name
+    const gpu_choice = JSON.parse(document.getElementById("gpu").value).name
+    const ram_choice = JSON.parse(document.getElementById("ram").value).name
+    const storage_choice = JSON.parse(document.getElementById("storage").value).name
+    const monitor_choice = JSON.parse(document.getElementById("monitor").value).name
+    const peripherals_choice = JSON.parse(document.getElementById("peripherals").value).name
+    const osver_choice = JSON.parse(document.getElementById("osver").value).name
 
     // Get Total & Points
 
