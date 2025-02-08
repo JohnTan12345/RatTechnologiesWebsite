@@ -29,14 +29,14 @@
                     <div id="bill"></div>
 
                     <div id="point-option" data-points="">
-                        <input type="checkbox" name="point-option" id="point-option0" value="true"/>
-                        <label for="point-option0"><h5>Use Points</h5></label>
+                        <input type="checkbox" name="point-option" id="point-option0">
+                        <label for="point-option0"><h5 id="point-option-text">Use Points</h5></label>
                     </div>
                     <div id="payment-option">
-                        <input type="radio" name="payment-option" id="payment-option0" value="true"/>
-                        <label for="payment-option0"><h5>PayNow</h5></label>
+                        <input type="radio" name="payment-option" id="payment-option0">
+                        <label for="payment-option0"><h5>Card Payment</h5></label>
                     </div>
-                    <button onclick="payment(`paynow`)" id="pay-option">
+                    <button onclick="payment()" id="pay-option">
                         <h5>Pay</h5>
                     </button>
                 </div>

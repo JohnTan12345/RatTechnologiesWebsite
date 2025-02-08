@@ -1077,25 +1077,34 @@ function gettotal() {
     To_Pay_amount.dataset.amount = To_Pay
     To_Pay_bg.appendChild(To_Pay_amount)
     To_Pay_amount.innerHTML = To_Pay_String
+    To_Pay_amount.dataset.usepoints = false
 
     // Point Option
+    document.getElementById("point-option").dataset.points = JSON.parse(localStorage.getItem("login data")).points
+    document.getElementById("point-option-text").innerHTML = `Use Points (S$${Number(document.getElementById("point-option").dataset.points)/100})`
 
 }
 
-function payment(type) {
-    const Payable_Amount = document.getElementById("amount-payable").dataset.amount
-
-    // Initiate Lucky Draw
-
-    const chance_index = Math.random()
-
-    if (chance_index > 0.1) {
-        alert("You won 10 dollars!")
-    } else if (0.02 < chance_index <= 0.1) {
-        alert("You won 500 dollars!")
-    } else {
-        alert("You won a free monitor!")
+function payment() {
+    const card_payment_option = document.getElementById("payment-option0").checked
+    
+    if (!card_payment_option) {
+        return
     }
+
+    var Payable_Amount = document.getElementById("amount-payable").dataset.amount
+    const Points_to_Earn = document.getElementById("points-amount").dataset.amount
+    const usepoints = document.getElementById("amount-payable").dataset.usepoints
+
+    if (usepoints) {
+        Payable_Amount = Number(Payable_Amount) - (JSON.parse(localStorage.getItem("login data")).points / 100)
+    }
+
+    localStorage.setItem("Payable_Amount", Payable_Amount)
+    localStorage.setItem("Earned_Points", Points_to_Earn)
+    localStorage.setItem("Using_Points", usepoints)
+
+    window.location.href = "cardpayment.html"
 }
 
 function addcommasinnumber(value) {
@@ -1132,24 +1141,75 @@ function guidGenerator() {
 // Point option selected
 
 if (document.getElementById("point-option")) {
-document.getElementById("point-option").addEventListener("change", function() {
+document.getElementById("point-option0").addEventListener("click", function() {
     const Payable_Amount_Display = document.getElementById("amount-payable")
     const Point_Option = document.getElementById("point-option")
     const Total_Display = document.getElementById("amount-payable")
 
     if (document.getElementById("point-option0").checked) {
-        const Point_to_Dollars = Point_Option.dataset.points / 10
+        const Point_to_Dollars = Point_Option.dataset.points / 100
         const Payable_Amount_After_Points = Payable_Amount_Display.dataset.amount - Point_to_Dollars
 
         const Payable_Amount_After_Points_String = addcommasinnumber(Number(Payable_Amount_After_Points).toFixed(2))
 
         Total_Display.innerHTML = Payable_Amount_After_Points_String
+        Total_Display.dataset.usepoints = true
         
     } else {
         const Payable_Amount_String = addcommasinnumber(Number(Total_Display.dataset.amount).toFixed(2))
 
         Total_Display.innerHTML = Payable_Amount_String
+        Total_Display.dataset.usepoints = false
     }
 })}
 
+// When Login Button is loaded
 document.getElementById("navbar-login").onload = checklogin()
+
+// Payment Page is loaded
+function payment_page_loaded() {
+    const amount_payable = localStorage.getItem("Payable_Amount")
+
+    document.getElementById("to-pay").innerHTML = `<h3>Amount Payable: ${addcommasinnumber(Number(amount_payable).toFixed(2))}`
+}
+
+function cardpay() {
+    const pay_button = document.getElementById("pay")
+    pay_button.disabled = true
+    pay_button.innerHTML = '<dotlottie-player src="https://lottie.host/8a0c36b9-eb34-425a-b8d9-44261e47e795/MxZsY2BrLb.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>'
+    pay_button.style.borderStyle = "solid none none solid"
+    pay_button.style.borderColor = "black"
+    const points_earned = localStorage.getItem("Earned_Points")
+    const useponts = localStorage.getItem("Using_Points")
+
+    var login_data = JSON.parse(localStorage.getItem("login data"))
+
+    if (useponts) {
+        login_data.points = 0
+    }
+
+    login_data.points = Number(login_data.points) + Number(points_earned)
+
+    new_account_data = {"username":login_data.username, "password":login_data.password, "points":login_data.points}
+
+    const APIKEY = "67a65abedf7c2681359657b8"
+
+    var settings = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY,
+          "Cache-Control": "no-cache"
+        },
+        body: JSON.stringify(new_account_data)
+      }
+  
+    fetch(`https://rattechnologies-dab8.restdb.io/rest/rat-technologies-accounts/${login_data._id}`, settings)
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem("login data", JSON.stringify(login_data))
+        localStorage.removeItem("cart")
+        pay_button.innerHTML = `<dotlottie-player id="anim" src="https://lottie.host/a69dfd67-5d73-4bb0-8c7f-d93705d64c43/mxM3JieP9l.lottie" background="transparent" speed="0.8" autoplay></dotlottie-player>`
+        window.location.href = "index.html"
+    });
+}

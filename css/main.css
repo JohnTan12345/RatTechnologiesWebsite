@@ -763,6 +763,78 @@ footer > div {
     padding-left: 20px;
 }
 
+#card-payment-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    margin-top: 50px;
+}
+#card-payment-bg {
+    display: flex;
+    width: 1000px;
+    height: 100%;
+    background-color: lightgray;
+}
+#card-info, #card-pay {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    width:50%;
+    height: 100%;
+    padding: 20px;
+}
+
+#card-pay {
+    position: relative;
+    border-left-style: groove;
+}
+
+#card-number, #expiry, #cvv {
+    margin-left: 10px;
+}
+#expiry {
+    width: 60px;
+}
+#cvv {
+    width: 40px;
+}
+#fname, #lname {
+    width: 100px;
+}
+#address {
+    width: 350px;
+}
+#postal {
+    width: 100px;
+}
+#city {
+    width: 200px;
+}
+
+#card-logos {
+    width: 100%;
+    height: 40px;
+    margin-top: 75px;
+}
+
+#pay {
+    background-color: orange;
+    width: 150px;
+    padding: 10px;
+    height: 44px;
+    border-style: none solid solid none;
+    border-radius: 10px;
+}
+#pay:hover{
+    background-color: rgb(190, 124, 1);
+}
+.logos {
+    height: 40px;
+}
+
 /* Screen Sizing */
 
 @media (min-width: 1500px) {
