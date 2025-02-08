@@ -831,7 +831,6 @@ function remove_item(item_id) {
             const index = cart.indexOf(item)
             if (index > -1) {
                 cart.splice(index, 1)
-                console.log(cart)
                 localStorage.setItem("cart", JSON.stringify(cart))
 
                 const total_display = document.getElementById("total-amount")
@@ -840,27 +839,26 @@ function remove_item(item_id) {
                 const payable_display = document.getElementById("amount-payable")
 
                 const new_total = Number(total_display.dataset.amount) - Number(item.total)
-                const new_gst = new_total * 0.09
+                const new_gst = (new_total * 0.09)
                 const new_points = Number(points_display.dataset.amount) - Number(item.points)
-                const new_payable = new_total + new_gst
+                const new_payable = (new_total + new_gst)
 
                 total_display.dataset.amount = new_total
                 total_display.innerHTML = addcommasinnumber(new_total)
 
                 gst_display.dataset.amount = new_gst
-                gst_display.innerHTML = addcommasinnumber(new_gst)
+                gst_display.innerHTML = addcommasinnumber(new_gst.toFixed(2))
 
                 points_display.dataset.amount = new_points
                 points_display.innerHTML = new_points
 
                 payable_display.dataset.amount = new_payable
-                payable_display.innerHTML = addcommasinnumber(new_payable)
+                payable_display.innerHTML = addcommasinnumber(new_payable.toFixed(2))
             }
         }
     })
     
     for (var i = 0; i < item_element.length;) {
-        console.log(item_element.item(i))
         item_element.item(i).remove()
     }
 }
@@ -1143,12 +1141,12 @@ document.getElementById("point-option").addEventListener("change", function() {
         const Point_to_Dollars = Point_Option.dataset.points / 10
         const Payable_Amount_After_Points = Payable_Amount_Display.dataset.amount - Point_to_Dollars
 
-        const Payable_Amount_After_Points_String = addcommasinnumber(Payable_Amount_After_Points)
+        const Payable_Amount_After_Points_String = addcommasinnumber(Number(Payable_Amount_After_Points).toFixed(2))
 
         Total_Display.innerHTML = Payable_Amount_After_Points_String
         
     } else {
-        const Payable_Amount_String = addcommasinnumber(Total_Display.dataset.amount)
+        const Payable_Amount_String = addcommasinnumber(Number(Total_Display.dataset.amount).toFixed(2))
 
         Total_Display.innerHTML = Payable_Amount_String
     }
