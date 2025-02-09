@@ -1,6 +1,6 @@
 // Test Bench
 
-const items_for_sale = 
+const items_for_sale_desktop = 
     {"budget": [
 
         {"name":"Cheese Power",
@@ -24,7 +24,8 @@ const items_for_sale =
                     "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"1400"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                }        
+                },
+                "brands": ["amd", "nvidia"]        
         },
 
         {"name":"Rat Rattling",
@@ -48,7 +49,8 @@ const items_for_sale =
                     "gpu":[{"name":"7800 XT", "price":"700"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                }
+                },
+                "brands": ["amd"]
         },
 
         {"name":"Blue Grinder",
@@ -72,7 +74,8 @@ const items_for_sale =
                     "gpu":[{"name":"RTX 5070", "price":"600"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                }   
+                },
+                "brands": ["intel", "nvidia"]   
         },
         
     ], 
@@ -99,7 +102,8 @@ const items_for_sale =
                     "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"1400"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                }        
+                },
+                "brands": ["amd", "nvidia"]        
         },
 
         {"name":"Rat Speeder",
@@ -123,7 +127,8 @@ const items_for_sale =
                     "gpu":[{"name":"7800 XT", "price":"700"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                }
+                },
+                "brands": ["amd"]
         },
 
         {"name":"Blue Grinder",
@@ -147,14 +152,23 @@ const items_for_sale =
                     "gpu":[{"name":"RTX 5070", "price":"600"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                }   
+                },
+                "brands": ["intel", "nvidia"]  
         },
         
     ]}
 
 function loadproducts(tab, page, filter) {
+    
+    var catagory
 
-    const catagory = items_for_sale[tab]
+    if (filter) {
+        catagory = filter
+    } else {
+        if (page == "desktops.html") {
+            catagory = items_for_sale_desktop[tab]
+        }
+    }
     const selection_div = document.getElementById("selection")
 
     for (var i = 0; i < catagory.length; i++) {
@@ -225,6 +239,142 @@ function loadproducts(tab, page, filter) {
 
 }
 
+
+function filterapply(page) {
+
+    selection.innerHTML = ""
+
+    const current_tab = document.getElementsByClassName("active-tab")[0].id
+
+    const min_price = Number(document.getElementById("min-price").value) || 0
+    const max_price = Number(document.getElementById("max-price").value) || 0
+    const nvidia_choice = document.getElementById("Nvidia").checked
+    const intel_choice = document.getElementById("Intel").checked
+    const amd_choice = document.getElementById("AMD").checked
+    const min_cpu = document.getElementById("cpu-filter").value
+    const min_gpu = document.getElementById("gpu-filter").value
+    const min_ram = document.getElementById("ram-filter").value
+    const min_storage = document.getElementById("storage-filter").value
+
+    if (min_price == 0 && max_price == 0 && nvidia_choice == false && intel_choice == false && amd_choice == false && min_cpu == "All" && min_gpu == "All" && min_ram == "All" && min_storage == "All") {
+        loadproducts(current_tab, page)
+    }
+    
+    var filter = []
+
+    if (page = "desktops.html") {
+        const budget_filter_list = filtercheck(items_for_sale_desktop["budget"])
+        const performance_filter_list = filtercheck(items_for_sale_desktop["performance"])
+        const productivity_filter_list = filtercheck(items_for_sale_desktop["productivity"])
+        const rgb_galore_filter_list = filtercheck(items_for_sale_desktop["rgb galore"])
+        
+        if (budget_filter_list) {
+            budget_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+
+        if (performance_filter_list) {
+            performance_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+        if (productivity_filter_list) {
+            productivity_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+
+        if (rgb_galore_filter_list) {
+            rgb_galore_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+        
+        loadproducts("All", page, filter)
+    }
+    
+}
+
+function filtercheck(catagory) {
+
+    if (!catagory) {
+        return
+    }
+
+    const min_price = Number(document.getElementById("min-price").value) || 0
+    const max_price = Number(document.getElementById("max-price").value) || 0
+    const nvidia_choice = document.getElementById("Nvidia").checked
+    const intel_choice = document.getElementById("Intel").checked
+    const amd_choice = document.getElementById("AMD").checked
+    const min_cpu = document.getElementById("cpu-filter").value
+    const min_gpu = document.getElementById("gpu-filter").value
+    const min_ram = document.getElementById("ram-filter").value
+    const min_storage = document.getElementById("storage-filter").value
+
+    var catagory_filter_list = []
+
+    catagory.forEach(product => {
+        const base_total = Number(product.base.cpu.price) + Number(product.base.gpu.price) + Number(product.base.ram.price) + Number(product.base.storage.price)
+
+        var cpu_upgrades = []
+        var gpu_upgrades = []
+        var ram_upgrades = []
+        var storage_upgrades = []
+
+        for (let i = 0; i < product.options.cpu.length; i++) {
+            const upgrade_option = product.options.cpu[i].name
+            cpu_upgrades.push(upgrade_option)
+        }
+        for (let i = 0; i < product.options.gpu.length; i++) {
+            const upgrade_option = product.options.gpu[i].name
+            gpu_upgrades.push(upgrade_option)
+        }
+        for (let i = 0; i < product.options.ram.length; i++) {
+            const upgrade_option = product.options.ram[i].name
+            ram_upgrades.push(upgrade_option)
+        }
+        for (let i = 0; i < product.options.cpu.length; i++) {
+            const upgrade_option = product.options.storage[i].name
+            storage_upgrades.push(upgrade_option)
+        }
+
+        if (min_price < base_total && base_total < max_price) {
+            catagory_filter_list.push(product)
+        } else if (nvidia_choice && product.brands.includes("nvidia")) {
+            catagory_filter_list.push(product)
+        } else if (intel_choice && product.brands.includes("intel")) {
+            catagory_filter_list.push(product)
+        } else if (amd_choice && product.brands.includes("amd")) {
+            catagory_filter_list.push(product)
+        } else if (min_cpu != "All" && (product.base.cpu.name == min_cpu || cpu_upgrades.includes(min_cpu))) {
+            catagory_filter_list.push(product)
+        } else if (min_gpu != "All" && (product.base.gpu.name == min_gpu || gpu_upgrades.includes(min_gpu))) {
+            catagory_filter_list.push(product)
+        } else if (min_ram != "All" && (product.base.ram.name == min_ram || ram_upgrades.includes(min_ram))) {
+            catagory_filter_list.push(product)
+        } else if (min_storage != "All" && (product.base.storage.name == min_storage || storage_upgrades.includes(min_storage))) {
+            catagory_filter_list.push(product)
+        }
+    })
+
+    return catagory_filter_list
+
+}
+
+// Switches Catagories
+
+function switchtab(element) {
+    if (element.classList.contains("active-div")) {
+        return
+    } else {
+        const active_tab = document.getElementsByClassName("active-tab")
+        const selection = document.getElementById("selection")
+        active_tab[0].classList.remove("active-tab")
+
+        element.classList.add("active-tab")
+
+        selection.innerHTML = ""
+        loadproducts(element.id, `desktops.html`)
+    }
+}
+
 function switchmode(next_mode) {
     var from
     var to
@@ -255,10 +405,6 @@ function switchmode(next_mode) {
         const element = to[i]
         element.classList.remove("hidden-focus")
     }
-}
-
-function filterapply() {
-    alert("apply filter")
 }
 
 
@@ -473,19 +619,6 @@ function checklogin() {
 function logout() {
     localStorage.removeItem("login data")
     window.location.reload()
-}
-
-// Switches Catagories
-
-function switchtab(element) {
-    if (element.classList.contains("active-div")) {
-        return
-    } else {
-        const active_tab = document.getElementsByClassName("active-tab")
-        active_tab[0].classList.remove("active-tab")
-
-        element.classList.add("active-tab")
-    }
 }
 
 function customize(item, previousPage) {
@@ -952,7 +1085,7 @@ function gettotal() {
         // Remove Button
 
         const remove_button = document.createElement("button")
-        remove_button.classList.add("remove-button")
+        remove_button.classList.add("remove-button", "ubuntu-bold")
         remove_button.onclick = function() {remove_item(item.id)}
         remove_button.innerHTML = "Remove"
         item_specs_bg.appendChild(remove_button)
