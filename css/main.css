@@ -328,7 +328,7 @@ footer > div {
     background-color: lightgray;
 }
 
-/* Item Template in Desktops/Laptops/PC Parts */
+/* Item Template in Desktops/Laptops */
 
 .item-option {
     transition: .5s;
@@ -368,6 +368,7 @@ footer > div {
     width: 175px;
     padding-left: 20px;
 }
+
 
 .customize {
     transition: .5s;
@@ -409,6 +410,74 @@ footer > div {
 #item-banner > img {
     width: 150px;
     height: 150px;
+}
+
+.item-option-part {
+    transition: .5s;
+    position: relative;
+    height: 430px;
+    width: 350px;
+    background-color: orange;
+    overflow: hidden;
+    margin: 25px;
+}
+
+.item-option-part > img  {
+    width: 350px;
+    height: 350px;
+}
+
+.item-option-part > div {
+    transition: .5s;
+    position: absolute;
+    background-color: orange;
+    bottom: -97px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    width: 350px;
+    padding: 10px 0px;
+}
+
+.item-option-part > div > div {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.item-option-part > div > div > h5 {
+    width: 175px;
+    padding-left: 20px;
+}
+
+
+.add-to-cart-part {
+    margin-top: 10px;
+    transition: .5s;
+    background-color: #2a8fe2;
+    border-radius: 10px;
+    padding: 10px;
+    border-style: solid;
+    border-color: #1C75BC;
+    width: 120px;
+    height: 50px;
+}
+
+.add-to-cart-part-anim {
+    height: 24px;
+}
+
+.add-to-cart-part:hover {
+    background-color: #1C75BC;
+}
+
+.item-option-part:hover .hidden * {
+    opacity: 1;
+}
+
+.item-option-part:hover > div {
+    bottom: 0px;
 }
 
 /* Customize Page */
@@ -706,6 +775,14 @@ footer > div {
 .item-img {
     width: 250px;
     height: 250px;
+}
+
+.item-specs-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
 }
 
 .remove-button {

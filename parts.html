@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body onload="loadproducts(`budget`, `parts.html`)">
+<body onload="loadproducts(`cpu`, `parts.html`)">
     <div id="navbarspacing"></div>
         
     <main>
@@ -24,10 +24,10 @@
         <div id="align-bg">
             <div id="tabs-filter">
                 <div id="tabs" style="height: 50%;">
-                    <button onclick="switchtab(this, `parts.html`)" class="tab active-tab" id="budget"><h3>Budget</h3></button>
-                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="performance"><h3>Performance</h3></button>
-                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="productivity"><h3>Productivity</h3></button>
-                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="rgb galore"><h3>RGB Galore</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab active-tab" id="cpu"><h3>CPU</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="gpu"><h3>GPU</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="ram"><h3>RAM</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="storage"><h3>Storage</h3></button>
                 </div>
 
                 <div id="filter">
@@ -76,3 +76,4 @@
 </body>
 
 <script src="js/main.js"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>

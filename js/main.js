@@ -1,5 +1,4 @@
-// Test Bench
-
+// Items Sold
 const items_for_sale_desktop = 
     {"budget": [
 
@@ -99,7 +98,7 @@ const items_for_sale_desktop =
                 "options":
                 {
                     "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
-                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"1400"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"2400"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
                 },
@@ -158,6 +157,198 @@ const items_for_sale_desktop =
         
     ]}
 
+const items_for_sale_laptop = 
+    {"budget": [
+
+        {"name":"Cheese Power",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"1400"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd", "nvidia"]        
+        },
+
+        {"name":"Rat Rattling",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"7600 XT",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"7600 XT", "price":"500"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D", "price":"550"}],
+                    "gpu":[{"name":"7800 XT", "price":"700"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd"]
+        },
+
+        {"name":"Blue Grinder",
+            "base display": 
+                {
+                    "cpu":"14600F",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"i5 14600F", "price":"325"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"i7 14700KF", "price":"575"}, {"name":"Core Ultra 7 265KF", "price":"590"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["intel", "nvidia"]   
+        },
+        
+    ], 
+"performance": [
+
+        {"name":"Cheese Racer",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"2400"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd", "nvidia"]        
+        },
+
+        {"name":"Rat Speeder",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"7600 XT",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"7600 XT", "price":"500"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D", "price":"550"}],
+                    "gpu":[{"name":"7800 XT", "price":"700"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd"]
+        },
+
+        {"name":"Blue Grinder",
+            "base display": 
+                {
+                    "cpu":"14600F",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"i5 14600F", "price":"325"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"i7 14700KF", "price":"575"}, {"name":"Core Ultra 7 265KF", "price":"590"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["intel", "nvidia"]  
+        },
+        
+    ]}
+
+
+const items_for_sale_parts = {
+    cpu: [
+        {"name":"i5 14600F", "price":"325", "brand":"intel"}, 
+        {"name":"i7 14700KF", "price": "575", "brand":"intel"}, 
+        {"name":"i9 14900KF", "price": "800", "brand":"intel"}, 
+        {"name":"Core Ultra 7 265KF", "price":"590", "brand":"intel"}, 
+        {"name":"Core Ultra 9 285K", "price": "850", "brand":"intel"}, 
+        {"name":"Ryzen 7 7600X3D", "price": "400", "brand":"amd"}, 
+        {"name":"Ryzen 7 7800X3D", "price": "675", "brand":"amd"},
+        {"name":"Ryzen 9 7900X", "price": "795", "brand":"amd"},
+        {"name":"Ryzen 9 7950X3D", "price": "830", "brand":"amd"}
+    ],
+    gpu: [
+        {"name":"RTX 4060", "price":"400", "brand":"nvidia"},
+        {"name":"RTX 5070", "price":"600", "brand":"nvidia"},
+        {"name":"RTX 5080", "price":"2400", "brand":"nvidia"},
+        {"name":"RTX 5090", "price":"5000", "brand":"nvidia"},
+        {"name":"7600 XT", "price":"500", "brand":"amd"},
+        {"name":"7800 XT", "price":"700", "brand":"amd"},
+        {"name":"7900 XTX", "price":"1300", "brand":"amd"}
+    ],
+    ram: [
+        {"name":"16GB", "price":"120"},
+        {"name":"32GB", "price":"240"},
+        {"name":"64GB", "price":"420"}
+    ],
+    storage: [
+        {"name":"512GB", "price":"90"},
+        {"name":"1TB", "price":"175"},
+        {"name":"2TB", "price":"295"}
+    ]
+}
+
 function loadproducts(tab, page, filter) {
     
     var catagory
@@ -168,9 +359,16 @@ function loadproducts(tab, page, filter) {
         if (page == "desktops.html") {
             catagory = items_for_sale_desktop[tab]
         }
+        else if (page == "laptops.html") {
+            catagory = items_for_sale_laptop[tab]
+        } else if (page == "parts.html") {
+
+            catagory = items_for_sale_parts[tab]
+        }
     }
     const selection_div = document.getElementById("selection")
 
+    if (page != "parts.html") {
     for (var i = 0; i < catagory.length; i++) {
 
         const item = catagory[i]
@@ -235,7 +433,44 @@ function loadproducts(tab, page, filter) {
         customize_button.onclick = function() {customize(item, page)}
         customize_button_div.appendChild(customize_button)
 
-    }
+    }} else {
+        for (var i = 0; i < catagory.length; i++) {
+
+            const part = catagory[i]
+            const part_option_bg = document.createElement("div")
+            part_option_bg.classList.add("item-option-part")
+            selection_div.appendChild(part_option_bg)
+
+            const part_img = document.createElement("img")
+            part_img.src = `img/${part.name}.jpeg`
+            part_option_bg.appendChild(part_img)
+
+            const info_div = document.createElement("div")
+            part_option_bg.appendChild(info_div)
+
+            const product_name = document.createElement("h3")
+            product_name.innerHTML = part.name
+            info_div.appendChild(product_name)
+
+            const price_div = document.createElement("div")
+            price_div.classList.add("hidden")
+            info_div.appendChild(price_div)
+
+            const price_text = document.createElement("h1")
+            price_text.innerHTML = addcommasinnumber(part.price)
+            price_div.appendChild(price_text)
+
+            const customize_button_div = document.createElement("div")
+            customize_button_div.classList.add("hidden")
+            info_div.appendChild(customize_button_div)
+
+            const add_to_cart_button = document.createElement("button")
+            add_to_cart_button.classList.add("add-to-cart-part", "ubuntu-bold")
+            add_to_cart_button.innerHTML = "Add to Cart"
+            add_to_cart_button.onclick = function() {addtocartpart(add_to_cart_button, part.name, part.price)}
+            customize_button_div.appendChild(add_to_cart_button)
+
+    }}
 
 }
 
@@ -353,6 +588,84 @@ function filtercheck(catagory) {
             catagory_filter_list.push(product)
         }
     })
+
+    return catagory_filter_list
+
+}
+
+function filterapplyparts(page) {
+
+    selection.innerHTML = ""
+
+    const current_tab = document.getElementsByClassName("active-tab")[0].id
+
+    const min_price = Number(document.getElementById("min-price").value) || 0
+    const max_price = Number(document.getElementById("max-price").value) || 0
+    const nvidia_choice = document.getElementById("Nvidia").checked
+    const intel_choice = document.getElementById("Intel").checked
+    const amd_choice = document.getElementById("AMD").checked
+
+    if (min_price == 0 && max_price == 0 && nvidia_choice == false && intel_choice == false && amd_choice == false) {
+        loadproducts(current_tab, page)
+    }
+    
+    var filter = []
+
+    if (page == "parts.html") {
+        const cpu_filter_list = filtercheckparts(items_for_sale_parts["cpu"])
+        const gpu_filter_list = filtercheckparts(items_for_sale_parts["gpu"])
+        const ram_filter_list = filtercheckparts(items_for_sale_parts["ram"])
+        const storage_filter_list = filtercheckparts(items_for_sale_parts["storage"])
+        
+        if (cpu_filter_list) {
+            cpu_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+
+        if (gpu_filter_list) {
+            gpu_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+        if (ram_filter_list) {
+            ram_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+
+        if (storage_filter_list) {
+            storage_filter_list.forEach(product => {
+                filter.push(product)
+            })}
+        
+        loadproducts("All", page, filter)
+    }
+    
+}
+
+function filtercheckparts(catagory) {
+
+    if (!catagory) {
+        return
+    }
+
+    const min_price = Number(document.getElementById("min-price").value) || 0
+    const max_price = Number(document.getElementById("max-price").value) || 0
+    const nvidia_choice = document.getElementById("Nvidia").checked
+    const intel_choice = document.getElementById("Intel").checked
+    const amd_choice = document.getElementById("AMD").checked
+
+    var catagory_filter_list = []
+
+    catagory.forEach(product => {
+
+        if (min_price < product.price && product.price < max_price) {
+            catagory_filter_list.push(product)
+        } else if (nvidia_choice && product.brand == "nvidia") {
+            catagory_filter_list.push(product)
+        } else if (intel_choice && product.brand == "intel") {
+            catagory_filter_list.push(product)
+        } else if (amd_choice && product.brand == "amd") {
+            catagory_filter_list.push(product)
+    }})
 
     return catagory_filter_list
 
@@ -912,7 +1225,7 @@ function addtocart() {
 
     const id = guidGenerator()
 
-    const item = {"id" : id, "name" : item_name, "cpu" : cpu_choice, "gpu" : gpu_choice, "ram" : ram_choice, "storage" : storage_choice, "monitor" : monitor_choice, "peripherals" : peripherals_choice, "osver" : osver_choice, "total" : total, "points" : points}
+    const item = {"type": "prebuilt" ,"id" : id, "name" : item_name, "cpu" : cpu_choice, "gpu" : gpu_choice, "ram" : ram_choice, "storage" : storage_choice, "monitor" : monitor_choice, "peripherals" : peripherals_choice, "osver" : osver_choice, "total" : total, "points" : points}
 
     // Add to cart list
     cart.push(item)
@@ -923,6 +1236,27 @@ function addtocart() {
 
     screen_blur.classList.add("cardshow")
     item_bought_align.classList.add("cardshow")
+}
+
+function addtocartpart(button, name, price) {
+
+    button.innerHTML = `<dotlottie-player class="add-to-cart-part-anim" src="https://lottie.host/a69dfd67-5d73-4bb0-8c7f-d93705d64c43/mxM3JieP9l.lottie" background="transparent" speed="0.8" autoplay></dotlottie-player>`
+    
+    const screen_blur = document.getElementById("screen-blur")
+    const item_bought_align = document.getElementById("item-bought-align")
+
+    // Add to cart
+    
+    var cart = JSON.parse(localStorage.getItem("cart")) || []
+
+    const id = guidGenerator()
+
+    const item = {"type": "part", "id": id, "name":name, "price":price}
+
+    // Add to cart list
+    cart.push(item)
+
+    localStorage.setItem("cart", JSON.stringify(cart))
 }
 
 function helpfulagree(review_id,) {
@@ -1007,6 +1341,8 @@ function gettotal() {
 
     cart.forEach(item => {
 
+        if (item.type == "prebuilt") {
+
         // Add points to total
 
         total_points += Number(item.points) 
@@ -1025,7 +1361,7 @@ function gettotal() {
 
         const item_img = document.createElement("img")
         item_img.classList.add("item-img")
-        item_img.src = `img/${item.name}.png`
+        item_img.src = `img/${item.name}.jpeg`
         item_bg.appendChild(item_img)
 
         // Item Specs Div
@@ -1089,6 +1425,35 @@ function gettotal() {
         remove_button.onclick = function() {remove_item(item.id)}
         remove_button.innerHTML = "Remove"
         item_specs_bg.appendChild(remove_button)
+        } else {
+
+            const item_bg = document.createElement("div")
+            item_bg.classList.add("item", item.id)
+            item_bg.dataset.itemname = item.name
+            item_bg.dataset.cost = item.price
+            item_bg.dataset.points = 0
+            item_bg.dataset.id = item.id
+            items_div.appendChild(item_bg)
+
+            const item_img = document.createElement("img")
+            item_img.classList.add("item-img")
+            item_img.src = `img/${item.name}.jpeg`
+            item_bg.appendChild(item_img)
+
+            const item_specs_bg = document.createElement("div")
+            item_specs_bg.classList.add("item-specs-part", "ubuntu-medium")
+            item_bg.appendChild(item_specs_bg)
+
+            const item_name = document.createElement("h1")
+            item_name.innerHTML = item.name
+            item_specs_bg.appendChild(item_name)
+
+            const remove_button = document.createElement("button")
+            remove_button.classList.add("remove-button", "ubuntu-bold")
+            remove_button.onclick = function() {remove_item(item.id)}
+            remove_button.innerHTML = "Remove"
+            item_specs_bg.appendChild(remove_button)
+        }
     });
 
     var total = 0
