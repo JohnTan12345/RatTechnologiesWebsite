@@ -114,3 +114,5 @@ High and Low Fidelity of the Mobile Layout: https://www.figma.com/design/SySO3vu
 ## Roles
 - Front End Developer: John
 - API Developer: Lucas
+
+- Github link: https://johntan12345.github.io/RatTechnologiesWebsite/

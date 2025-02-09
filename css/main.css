@@ -178,6 +178,10 @@ footer > div {
     width: 100%;
     height: 40%;
 }
+.carousel-caption {
+    background-color: black;
+    padding: 20px;
+}
 
 /* home navigation */
 
@@ -206,11 +210,24 @@ footer > div {
     display: flex;
     justify-content: center;
     align-items: end;
-    background-image: url("../img/placeholder.jpeg");
     background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+#desktops-home-nav {
+    background-image: url("../img/Cheese Racer.jpg");
+    background-size: 150%;
+    background-position: 60%;
+}
+#laptops-home-nav {
+    background-image: url("../img/Blue Sniper.jpg");
+    background-size: 150%;
+    background-position: 45%;
+}
+#parts-home-nav {
+    background-image: url("../img/placeholder.jpeg");
     background-size: 250%;
     background-position: 60%;
-    border-radius: 10px;
 }
 
 .home-nav-name {
