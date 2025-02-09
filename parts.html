@@ -12,46 +12,42 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body>
+<body onload="loadproducts(`budget`, `parts.html`)">
     <div id="navbarspacing"></div>
-
+        
     <main>
 
-        <div id="item-banner">
-            <img>
-            <h1 class="ubuntu-bold">Parts</h1>
-            <img>
+        <div id="product-header" class="ubuntu-bold">
+            <h1>Parts</h1>
         </div>
 
-        <div class="options-title-bg">
-            <h1 class="options-title ubuntu-bold" style="margin-top: 0px;">Performant Budgets</h1>
-        </div>
-
-        <div class="options-layout-bg">
-            <div class="options-layout">
-
-                <!-- Item Template -->
-                <div class="item-option">
-                    <img src="img/placeholder.jpeg">
-                    <div>
-                        <h3>Cheese Power</h3>
-                        <div>
-                            <h5>CPU: 9950X3D</h5>
-                            <h5>GPU: RTX 5090</h5>
-                        </div>
-                        <div class="hidden">
-                            <h5>RAM: 64GB</h5>
-                            <h5>Storage: 4TB</h5>
-                        </div>
-                        <div class="hidden"><button onclick="" class="customize ubuntu-bold" data-item="">
-                            Customize Now
-                        </button></div>
-                    </div>
+        <div id="align-bg">
+            <div id="tabs-filter">
+                <div id="tabs" style="height: 50%;">
+                    <button onclick="switchtab(this, `parts.html`)" class="tab active-tab" id="budget"><h3>Budget</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="performance"><h3>Performance</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="productivity"><h3>Productivity</h3></button>
+                    <button onclick="switchtab(this, `parts.html`)" class="tab" id="rgb galore"><h3>RGB Galore</h3></button>
                 </div>
 
+                <div id="filter">
+                    <h4>Base Price Range</h4>
+                    <input class="price-input" id="min-price"placeholder="S$"> -- <input class="price-input" id="max-price" placeholder="S$"><br>
+                    
+                    <h4 class="filter-header">Part Brands</h4>
+                    <input class="filter-selection" type="checkbox" name="Nvidia" id="Nvidia">
+                    <label for="Nvidia">Nvidia</label><br>
+                    <input class="filter-selection" type="checkbox" name="Intel" id="Intel">
+                    <label for="Intel">Intel</label><br>
+                    <input class="filter-selection" type="checkbox" name="AMD" id="AMD">
+                    <label for="AMD">AMD</label><br><br>
+                    <button class="filter-selection" id="filter-apply" onclick="filterapplyparts(`parts.html`)">Apply</button>
+                </div>
             </div>
-        </div> 
-        
+            <div id="selection" class="ubuntu-medium">
+            </div>
+        </div>
+
     </main>
 
     <header id="navbar">
@@ -61,8 +57,12 @@
               <a href="desktops.html"><li class="navbar-button">Desktops</li></a>
               <a href="laptops.html"><li class="navbar-button">Laptops</li></a>
               <a href="parts.html"><li class="navbar-button">PC Parts</li></a>
-              <button id="navbar-login" class="ubuntu-bold" onclick="tologin(`parts.html`)">Login</button>
+              <button id="navbar-login" class="ubuntu-bold"onclick="tologin(`desktops.html`)">Login</button>
           </ul>
+          <div id="account-info" class="hidden-focus">
+            <div id="account-points" class="ubuntu-medium">Points: 0</div>
+            <button id="account-log-out" class="ubuntu-medium" onclick="logout()">Log Out</button>
+          </div>
         </navbar>
       </header>
 

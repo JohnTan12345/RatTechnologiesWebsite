@@ -360,7 +360,7 @@ function filtercheck(catagory) {
 
 // Switches Catagories
 
-function switchtab(element) {
+function switchtab(element, page) {
     if (element.classList.contains("active-div")) {
         return
     } else {
@@ -371,7 +371,7 @@ function switchtab(element) {
         element.classList.add("active-tab")
 
         selection.innerHTML = ""
-        loadproducts(element.id, `desktops.html`)
+        loadproducts(element.id, page)
     }
 }
 
