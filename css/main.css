@@ -134,7 +134,7 @@ a {
     background-color: #adadad;
 }
 
-#account-log-out {
+#account-log-out, #cart-button {
     width: 100%;
     font-size: x-large;
     text-align: center;

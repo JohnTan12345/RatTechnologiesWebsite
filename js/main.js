@@ -1672,6 +1672,14 @@ function payment_page_loaded() {
 }
 
 function cardpay() {
+
+    var login_data = JSON.parse(localStorage.getItem("login data"))
+    
+    if (!login_data) {
+        window.location.href = "index.html"
+        return
+    }
+
     const pay_button = document.getElementById("pay")
     pay_button.disabled = true
     pay_button.innerHTML = '<dotlottie-player src="https://lottie.host/8a0c36b9-eb34-425a-b8d9-44261e47e795/MxZsY2BrLb.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>'
@@ -1679,8 +1687,6 @@ function cardpay() {
     pay_button.style.borderColor = "black"
     const points_earned = localStorage.getItem("Earned_Points")
     const useponts = localStorage.getItem("Using_Points")
-
-    var login_data = JSON.parse(localStorage.getItem("login data"))
 
     if (useponts) {
         login_data.points = 0
