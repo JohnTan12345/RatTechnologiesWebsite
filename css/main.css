@@ -40,6 +40,7 @@ navbar {
 }
 
 #navbar-buttons {
+    position: relative;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -121,9 +122,9 @@ a {
 }
 
 #account-info {
-    position: fixed; 
-    right: 0px; 
-    top: 110px; 
+    position: absolute; 
+    right: -10px; 
+    top: 100px; 
     width: 200px;
 }
 
