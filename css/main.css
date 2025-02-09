@@ -426,6 +426,7 @@ footer > div {
 .item-option-part > img  {
     width: 350px;
     height: 350px;
+    background-color: white;
 }
 
 .item-option-part > div {

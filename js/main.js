@@ -12,7 +12,7 @@ const items_for_sale_desktop =
             },
             "base":
             {
-                "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                 "gpu":{"name":"RTX 4060", "price":"400"},
                 "ram":{"name":"16GB", "price":"120"},
                 "storage":{"name":"512GB", "price":"90"}
@@ -44,7 +44,7 @@ const items_for_sale_desktop =
             },
             "options":
             {
-                "cpu":[{"name":"Ryzen 7 7600X3D","price":"400"}],
+                "cpu":[{"name":"Ryzen 5 7600X3D","price":"400"}],
                 "gpu":[{"name":"7600XT", "price":"500"}, {"name":"RTX 5070", "price":"600"}],
                 "ram":[{"name":"64GB", "price":"420"}],
                 "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
@@ -62,7 +62,7 @@ const items_for_sale_desktop =
             },
             "base":
             {
-                "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                 "gpu":{"name":"7600 XT", "price":"500"},
                 "ram":{"name":"16GB", "price":"120"},
                 "storage":{"name":"512GB", "price":"90"}
@@ -115,7 +115,7 @@ const items_for_sale_desktop =
             },
             "base":
             {
-                "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                 "gpu":{"name":"RTX 4060", "price":"400"},
                 "ram":{"name":"16GB", "price":"120"},
                 "storage":{"name":"512GB", "price":"90"}
@@ -165,7 +165,7 @@ const items_for_sale_desktop =
             },
             "base":
             {
-                "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                 "gpu":{"name":"7600 XT", "price":"500"},
                 "ram":{"name":"16GB", "price":"120"},
                 "storage":{"name":"512GB", "price":"90"}
@@ -293,14 +293,14 @@ const items_for_sale_desktop =
         "base":
         {
             "cpu":{"name":"Ryzen 9 7900X","price":"795"},
-            "gpu":{"name":"RTX 5090", "price":"5000"},
+            "gpu":{"name":"RTX 5070", "price":"600"},
             "ram":{"name":"32GB", "price":"240"},
             "storage":{"name":"512GB", "price":"90"}
         },
         "options":
         {
             "cpu":[{"name":"Ryzen 7 7950X3D", "price":"830"}],
-            "gpu":[{"name":"RTX 5080", "price":"2400"}, {"name":"RTX 5070", "price":"600"}],
+            "gpu":[{"name":"RTX 5080", "price":"2400"}, {"name":"RTX 5090", "price":"5000"}],
             "ram":[{"name":"64GB", "price":"420"}],
             "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
         },
@@ -319,7 +319,7 @@ const items_for_sale_desktop =
         },
         "base":
         {
-            "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+            "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
             "gpu":{"name":"RTX 4060", "price":"400"},
             "ram":{"name":"32GB", "price":"240"},
             "storage":{"name":"512GB", "price":"90"}
@@ -362,22 +362,22 @@ const items_for_sale_desktop =
 {"name":"Blue Cheese",
     "base display": 
         {
-            "cpu":"7950X3D",
+            "cpu":"7900X",
             "gpu":"7900 XTX",
             "ram":"32GB",
             "storage":"512GB"
         },
         "base":
         {
-            "cpu":{"name":"Ryzen 7 7950X3D", "price":"830"},
-            "gpu":{"name":"7900 XTX", "price":"1300"},
+            "cpu":{"name":"Ryzen 9 7900X","price":"795"},
+            "gpu":{"name":"RTX 5070", "price":"600"},
             "ram":{"name":"32GB", "price":"240"},
             "storage":{"name":"512GB", "price":"90"}
         },
         "options":
         {
-            "cpu":[{"name":"Ryzen 9 7900X","price":"795"}],
-            "gpu":[{"name":"RTX 5080", "price":"2400"}, {"name":"RTX 5070", "price":"600"}],
+            "cpu":[{"name":"Ryzen 7 7950X3D", "price":"830"}],
+            "gpu":[{"name":"RTX 5080", "price":"2400"}, {"name":"7900 XTX", "price":"1300"}],
             "ram":[{"name":"64GB", "price":"420"}],
             "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
         },
@@ -424,7 +424,7 @@ const items_for_sale_laptop =
                 },
                 "base":
                 {
-                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                     "gpu":{"name":"RTX 4060", "price":"400"},
                     "ram":{"name":"16GB", "price":"120"},
                     "storage":{"name":"512GB", "price":"90"}
@@ -449,7 +449,7 @@ const items_for_sale_laptop =
                 },
                 "base":
                 {
-                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                     "gpu":{"name":"7600 XT", "price":"500"},
                     "ram":{"name":"16GB", "price":"120"},
                     "storage":{"name":"512GB", "price":"90"}
@@ -502,7 +502,7 @@ const items_for_sale_laptop =
                 },
                 "base":
                 {
-                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                     "gpu":{"name":"RTX 5070", "price":"600"},
                     "ram":{"name":"16GB", "price":"120"},
                     "storage":{"name":"512GB", "price":"90"}
@@ -584,7 +584,7 @@ const items_for_sale_laptop =
                 },
                 "base":
                 {
-                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "cpu":{"name":"Ryzen 5 7600X3D", "price":"400"},
                     "gpu":{"name":"RTX 4060", "price":"400"},
                     "ram":{"name":"16GB", "price":"120"},
                     "storage":{"name":"512GB", "price":"90"}
@@ -611,7 +611,7 @@ const items_for_sale_parts = {
         {"name":"i9 14900KF", "price": "800", "brand":"intel"}, 
         {"name":"Core Ultra 7 265KF", "price":"590", "brand":"intel"}, 
         {"name":"Core Ultra 9 285K", "price": "850", "brand":"intel"}, 
-        {"name":"Ryzen 7 7600X3D", "price": "400", "brand":"amd"}, 
+        {"name":"Ryzen 5 7600X3D", "price": "400", "brand":"amd"}, 
         {"name":"Ryzen 7 7800X3D", "price": "675", "brand":"amd"},
         {"name":"Ryzen 9 7900X", "price": "795", "brand":"amd"},
         {"name":"Ryzen 9 7950X3D", "price": "830", "brand":"amd"}
@@ -785,33 +785,44 @@ function filterapply(page) {
     
     var filter = []
 
-    if (page = "desktops.html") {
-        const budget_filter_list = filtercheck(items_for_sale_desktop["budget"])
-        const performance_filter_list = filtercheck(items_for_sale_desktop["performance"])
-        const productivity_filter_list = filtercheck(items_for_sale_desktop["productivity"])
-        const rgb_galore_filter_list = filtercheck(items_for_sale_desktop["rgb galore"])
-        
-        if (budget_filter_list) {
-            budget_filter_list.forEach(product => {
-                filter.push(product)
-            })}
+    var catagory_1_filter_list
+    var catagory_2_filter_list
+    var catagory_3_filter_list
+    var catagory_4_filter_list
 
-        if (performance_filter_list) {
-            performance_filter_list.forEach(product => {
-                filter.push(product)
-            })}
-        if (productivity_filter_list) {
-            productivity_filter_list.forEach(product => {
-                filter.push(product)
-            })}
 
-        if (rgb_galore_filter_list) {
-            rgb_galore_filter_list.forEach(product => {
-                filter.push(product)
-            })}
-        
-        loadproducts("All", page, filter)
+    if (page == "desktops.html") {
+        catagory_1_filter_list = filtercheck(items_for_sale_desktop["budget"])
+        catagory_2_filter_list = filtercheck(items_for_sale_desktop["performance"])
+        catagory_3_filter_list = filtercheck(items_for_sale_desktop["productivity"])
+        catagory_4_filter_list = filtercheck(items_for_sale_desktop["rgb galore"])
+    } else if (page == "laptops.html") {
+        catagory_1_filter_list = filtercheck(items_for_sale_laptop["budget"])
+        catagory_2_filter_list = filtercheck(items_for_sale_laptop["performance"])
+        catagory_3_filter_list = filtercheck(items_for_sale_laptop["productivity"])
+        catagory_4_filter_list = filtercheck(items_for_sale_laptop["rgb galore"])
     }
+
+    if (catagory_1_filter_list) {
+        catagory_1_filter_list.forEach(product => {
+            filter.push(product)
+        })}
+
+    if (catagory_2_filter_list) {
+        catagory_2_filter_list.forEach(product => {
+            filter.push(product)
+        })}
+    if (catagory_3_filter_list) {
+        catagory_3_filter_list.forEach(product => {
+            filter.push(product)
+        })}
+
+    if (catagory_4_filter_list) {
+        catagory_4_filter_list.forEach(product => {
+            filter.push(product)
+        })}
+    
+    loadproducts("All", page, filter)
     
 }
 
@@ -836,6 +847,8 @@ function filtercheck(catagory) {
     catagory.forEach(product => {
         const base_total = Number(product.base.cpu.price) + Number(product.base.gpu.price) + Number(product.base.ram.price) + Number(product.base.storage.price)
 
+        console.log(product)
+
         var cpu_upgrades = []
         var gpu_upgrades = []
         var ram_upgrades = []
@@ -853,7 +866,7 @@ function filtercheck(catagory) {
             const upgrade_option = product.options.ram[i].name
             ram_upgrades.push(upgrade_option)
         }
-        for (let i = 0; i < product.options.cpu.length; i++) {
+        for (let i = 0; i < product.options.storage.length; i++) {
             const upgrade_option = product.options.storage[i].name
             storage_upgrades.push(upgrade_option)
         }
@@ -1397,7 +1410,7 @@ function loadreviews() {
         review_bg.appendChild(content_div)
 
         const profile_img = document.createElement("img")
-        profile_img.src = "img/placeholder.jpg" //Get Profile Pic From account database later
+        profile_img.src = "img/placeholder.jpg"
         content_div.appendChild(profile_img)
         
         const content_div_no_pic = document.createElement("div")
@@ -1532,9 +1545,6 @@ function addtocart() {
 function addtocartpart(button, name, price) {
 
     button.innerHTML = `<dotlottie-player class="add-to-cart-part-anim" src="https://lottie.host/a69dfd67-5d73-4bb0-8c7f-d93705d64c43/mxM3JieP9l.lottie" background="transparent" speed="0.8" autoplay></dotlottie-player>`
-    
-    const screen_blur = document.getElementById("screen-blur")
-    const item_bought_align = document.getElementById("item-bought-align")
 
     // Add to cart
     
@@ -1542,7 +1552,7 @@ function addtocartpart(button, name, price) {
 
     const id = guidGenerator()
 
-    const item = {"type": "part", "id": id, "name":name, "price":price}
+    const item = {"type": "part", "id": id, "name":name, "total":price, "points":0}
 
     // Add to cart list
     cart.push(item)
@@ -1721,14 +1731,15 @@ function gettotal() {
             const item_bg = document.createElement("div")
             item_bg.classList.add("item", item.id)
             item_bg.dataset.itemname = item.name
-            item_bg.dataset.cost = item.price
-            item_bg.dataset.points = 0
+            item_bg.dataset.cost = item.total
+            item_bg.dataset.points = item.points
             item_bg.dataset.id = item.id
             items_div.appendChild(item_bg)
 
             const item_img = document.createElement("img")
             item_img.classList.add("item-img")
             item_img.src = `img/${item.name}.jpg`
+            item_img.style.backgroundColor = "white"
             item_bg.appendChild(item_img)
 
             const item_specs_bg = document.createElement("div")
@@ -1870,7 +1881,7 @@ function gettotal() {
 
     // Point Option
     document.getElementById("point-option").dataset.points = JSON.parse(localStorage.getItem("login data")).points
-    document.getElementById("point-option-text").innerHTML = `Use Points (S$${Number(document.getElementById("point-option").dataset.points)/100})`
+    document.getElementById("point-option-text").innerHTML = `Use Points (${(addcommasinnumber((Number(document.getElementById("point-option").dataset.points)/100).toFixed(2)))})`
 
 }
 
