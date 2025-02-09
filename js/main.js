@@ -128,39 +128,96 @@ const items_for_sale_desktop =
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
                 },
                 "brands": ["amd"]
-        },
+        },        
+    ],
+    "productivity": [
 
-        {"name":"Blue Grinder",
+        {"name":"Cheese Grinder",
             "base display": 
                 {
-                    "cpu":"14600F",
+                    "cpu":"7600X3D",
                     "gpu":"RTX 4060",
                     "ram":"16GB",
                     "storage":"512GB"
                 },
                 "base":
                 {
-                    "cpu":{"name":"i5 14600F", "price":"325"},
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
                     "gpu":{"name":"RTX 4060", "price":"400"},
                     "ram":{"name":"16GB", "price":"120"},
                     "storage":{"name":"512GB", "price":"90"}
                 },
                 "options":
                 {
-                    "cpu":[{"name":"i7 14700KF", "price":"575"}, {"name":"Core Ultra 7 265KF", "price":"590"}],
-                    "gpu":[{"name":"RTX 5070", "price":"600"}],
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"2400"}],
                     "ram":[{"name":"32GB", "price":"240"}],
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
                 },
-                "brands": ["intel", "nvidia"]  
+                "brands": ["amd", "nvidia"]        
         },
+
+        {"name":"The Cook",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"7600 XT",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"7600 XT", "price":"500"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D", "price":"550"}],
+                    "gpu":[{"name":"7800 XT", "price":"700"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd"]
+        },
+    ],
+    
+    "rgb galore": [
+
+        {"name":"Mouse Trap",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"RTX 4060",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"RTX 4060", "price":"400"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5070", "price":"600"}, {"name":"RTX 5080", "price":"2400"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd", "nvidia"]        
+        },        
         
-    ]}
+    ],
+
+    }
 
 const items_for_sale_laptop = 
     {"budget": [
 
-        {"name":"Cheese Power",
+        {"name":"Light Power",
             "base display": 
                 {
                     "cpu":"7600X3D",
@@ -185,7 +242,7 @@ const items_for_sale_laptop =
                 "brands": ["amd", "nvidia"]        
         },
 
-        {"name":"Rat Rattling",
+        {"name":"Cooking Rat",
             "base display": 
                 {
                     "cpu":"7600X3D",
@@ -210,7 +267,7 @@ const items_for_sale_laptop =
                 "brands": ["amd"]
         },
 
-        {"name":"Blue Grinder",
+        {"name":"Blue Cheese",
             "base display": 
                 {
                     "cpu":"14600F",
@@ -238,7 +295,89 @@ const items_for_sale_laptop =
     ], 
 "performance": [
 
-        {"name":"Cheese Racer",
+        {"name":"Cheese Thrower",
+            "base display": 
+                {
+                    "cpu":"7600X3D",
+                    "gpu":"RTX 5070",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
+                    "gpu":{"name":"RTX 5070", "price":"600"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Ryzen 7 7800X3D","price":"550"}],
+                    "gpu":[{"name":"RTX 5080", "price":"2400"}, {"name":"RTX 5090", "price":"5300"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["amd", "nvidia"]        
+        },
+
+        {"name":"Blue Sniper",
+            "base display": 
+                {
+                    "cpu":"14700KF",
+                    "gpu":"RTX 5070",
+                    "ram":"16GB",
+                    "storage":"512GB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"i7 14700KF", "price":"575"},
+                    "gpu":{"name":"RTX 5070", "price":"600"},
+                    "ram":{"name":"16GB", "price":"120"},
+                    "storage":{"name":"512GB", "price":"90"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Core Ultra 7 265KF", "price":"590"}],
+                    "gpu":[{"name":"RTX 5080", "price":"2400"}],
+                    "ram":[{"name":"32GB", "price":"240"}],
+                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["intel", "nvidia"]  
+        },
+        
+        
+    ],
+    "productivity": [
+
+        {"name":"Ratatouille",
+            "base display": 
+                {
+                    "cpu":"14700KF",
+                    "gpu":"RTX 5080",
+                    "ram":"32GB",
+                    "storage":"1TB"
+                },
+                "base":
+                {
+                    "cpu":{"name":"i7 14700KF", "price":"575"},
+                    "gpu":{"name":"RTX 5080", "price":"2400"},
+                    "ram":{"name":"32GB", "price":"120"},
+                    "storage":{"name":"1TB", "price":"175"}
+                },
+                "options":
+                {
+                    "cpu":[{"name":"Core Ultra 9 285K", "price":"850"}, {"name":"Ryzen 7 7800X3D", "price":"675"}, {"name":"Ryzen 9 7900X", "price":"795"}, {"name":"Ryzen 9 7950X3D", "price":"830"}],
+                    "gpu":[{"name":"7800 XT", "price":"700"}, {"name":"7900 XTX", "price":"1300"}, {"name":"RTX 5090", "price":"5300"}],
+                    "ram":[{"name":"64GB", "price":"420"}],
+                    "storage":[{"name":"2TB", "price":"295"}]
+                },
+                "brands": ["intel", "amd", "nvidia"]
+        },
+    ],
+    
+    "rgb galore": [
+
+        {"name":"Floor Rat",
             "base display": 
                 {
                     "cpu":"7600X3D",
@@ -261,59 +400,11 @@ const items_for_sale_laptop =
                     "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
                 },
                 "brands": ["amd", "nvidia"]        
-        },
-
-        {"name":"Rat Speeder",
-            "base display": 
-                {
-                    "cpu":"7600X3D",
-                    "gpu":"7600 XT",
-                    "ram":"16GB",
-                    "storage":"512GB"
-                },
-                "base":
-                {
-                    "cpu":{"name":"Ryzen 7 7600X3D", "price":"400"},
-                    "gpu":{"name":"7600 XT", "price":"500"},
-                    "ram":{"name":"16GB", "price":"120"},
-                    "storage":{"name":"512GB", "price":"90"}
-                },
-                "options":
-                {
-                    "cpu":[{"name":"Ryzen 7 7800X3D", "price":"550"}],
-                    "gpu":[{"name":"7800 XT", "price":"700"}],
-                    "ram":[{"name":"32GB", "price":"240"}],
-                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                },
-                "brands": ["amd"]
-        },
-
-        {"name":"Blue Grinder",
-            "base display": 
-                {
-                    "cpu":"14600F",
-                    "gpu":"RTX 4060",
-                    "ram":"16GB",
-                    "storage":"512GB"
-                },
-                "base":
-                {
-                    "cpu":{"name":"i5 14600F", "price":"325"},
-                    "gpu":{"name":"RTX 4060", "price":"400"},
-                    "ram":{"name":"16GB", "price":"120"},
-                    "storage":{"name":"512GB", "price":"90"}
-                },
-                "options":
-                {
-                    "cpu":[{"name":"i7 14700KF", "price":"575"}, {"name":"Core Ultra 7 265KF", "price":"590"}],
-                    "gpu":[{"name":"RTX 5070", "price":"600"}],
-                    "ram":[{"name":"32GB", "price":"240"}],
-                    "storage":[{"name":"1TB", "price":"175"},{"name":"2TB", "price":"295"}]
-                },
-                "brands": ["intel", "nvidia"]  
-        },
+        },        
         
-    ]}
+    ],
+
+    }
 
 
 const items_for_sale_parts = {
@@ -332,7 +423,7 @@ const items_for_sale_parts = {
         {"name":"RTX 4060", "price":"400", "brand":"nvidia"},
         {"name":"RTX 5070", "price":"600", "brand":"nvidia"},
         {"name":"RTX 5080", "price":"2400", "brand":"nvidia"},
-        {"name":"RTX 5090", "price":"5000", "brand":"nvidia"},
+        {"name":"RTX 5090", "price":"5300", "brand":"nvidia"},
         {"name":"7600 XT", "price":"500", "brand":"amd"},
         {"name":"7800 XT", "price":"700", "brand":"amd"},
         {"name":"7900 XTX", "price":"1300", "brand":"amd"}
